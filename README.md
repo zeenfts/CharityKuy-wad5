@@ -10,7 +10,7 @@
 ### [Step (jika pakai project laravelnya):](https://medium.com/@shuvosutradhar/clone-laravel-project-from-github-d712f594d68d)
 1. clone
 2. cd to charitykuy_laravel
-3. copy env.example dan ubah namanya ke .env (sesuaikan nama database kosongnya)
+3. copy env.example dan ubah namanya ke .env (sesuaikan isi file ini terutama nama database kosongnya)
 4. composer install
 5. php artisan key:generate
 6. php artisan migrate
