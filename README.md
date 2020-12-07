@@ -7,7 +7,7 @@
 > [controller](https://github.com/zeeniye/CharityKuy-wad5/tree/main/charitykuy_laravel/app/Http/Controllers)<br>
 > [route](https://github.com/zeeniye/CharityKuy-wad5/blob/main/charitykuy_laravel/routes/web.php)<br>
 
-### [Step:](https://medium.com/@shuvosutradhar/clone-laravel-project-from-github-d712f594d68d)
+### [Step (jika pakai project laravelnya):](https://medium.com/@shuvosutradhar/clone-laravel-project-from-github-d712f594d68d)
 1. clone
 2. cd to charitykuy_laravel
 3. copy env.example dan ubah namanya ke .env (sesuaikan nama database kosongnya)
