@@ -1,4 +1,5 @@
 # Repository Tugas Besar Web Application Development 2020 - Group 5
+<small>*Using Laravel version 8*</small>
 
 > [migration](https://github.com/zeeniye/CharityKuy-wad5/tree/main/charitykuy_laravel/database/migrations)<br>
 > [db:seeder](https://github.com/zeeniye/CharityKuy-wad5/tree/main/charitykuy_laravel/database/seeders)<br>
