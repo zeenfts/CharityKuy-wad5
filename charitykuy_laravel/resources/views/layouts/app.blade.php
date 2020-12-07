@@ -36,8 +36,9 @@
             @yield('content')
         </main>
 
+        {{-- footer --}}
         <div class="card-body card text-center pt-4">
-            <h5 class="card-title">--SISTEM INFORMASI 4208 2020--</h5>
+            <h5 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h5>
             <p class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan lebih</p>
         </div>
     </div>

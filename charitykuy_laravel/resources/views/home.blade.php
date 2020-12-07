@@ -53,9 +53,11 @@
                         </div>
                         @endif
                         <div class="col-md-12 px-0 pt-5">
-                            <a href="bencana.html"
+                            {{-- <a href="bencana.html"
+                                class="btn btn-primary">{{ ($menu->tipe == 'donasi') ? 'Donasi Sekarang' : 'Info' }}</a> --}}
+                                <a href="{{ route('menus.detail', $menu) }}"
                                 class="btn btn-primary">{{ ($menu->tipe == 'donasi') ? 'Donasi Sekarang' : 'Info' }}</a>
-                        </div>
+                            </div>
                     </div>
 
                 </div>

@@ -12,4 +12,11 @@ class MenuController extends Controller
         $menus = Menu::oldest()->paginate(3);
         return view('home', compact('menus'));
     }
+
+    public function menu_detail(Menu $item)
+    {
+        return view('menu_action',[
+            'item'=>$item,
+        ]);
+    }
 }
