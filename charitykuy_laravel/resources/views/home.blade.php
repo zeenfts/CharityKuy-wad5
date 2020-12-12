@@ -45,9 +45,14 @@
         @endforeach
     </div>
 
+    <div class="row pt-5">
+        <div class="col-md-12">
+            <a href="{{ route('menus.add') }}" class="btn btn-secondary">+ Tambah Donasi Baru</a>
+        </div>
+    </div>
     
     {{-- content donation card --}}
-    <div class="row pt-5">
+    <div class="row pt-2">
         @foreach ($menus as $menu)
         <div class="col-md-3 pt-4">
             <div class="card text-center" style="height: 39em; box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px;">

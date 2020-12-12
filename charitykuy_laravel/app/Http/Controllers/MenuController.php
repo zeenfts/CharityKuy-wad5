@@ -23,4 +23,26 @@ class MenuController extends Controller
             'item'=>$item,
         ]);
     }
+
+    public function add_menu()
+    {
+        return view('secondary/menu_add');
+    }
+
+    public function store_menu()
+    {
+        // return view('secondary/menu_edit');
+    }
+
+    public function edit_menu(Menu $item)
+    {
+        return view('secondary/menu_edit', [
+            'item' => $item,
+            ]);
+    }
+
+    public function update_menu()
+    {
+        // return view('secondary/menu_add');
+    }
 }

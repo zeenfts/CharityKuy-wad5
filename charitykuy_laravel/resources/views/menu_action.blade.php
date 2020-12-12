@@ -7,7 +7,23 @@
 
     <div class="row mt-4">
         <div class="col-md-12 pt-3">
-            <h1>DESKRIPSI</h1>
+            <div class="row justify-content-between px-2">
+                <h1>DESKRIPSI</h1>
+                <div class="row">
+                    <div class="col-md-6">
+                        <a href="{{ route('menus.edit', $item) }}" class="btn btn-success w-100">Edit</a>
+                    </div>
+                    <div class="col-md-6">
+                        <form action="{{ ''}}" method="POST" class="form-inline"
+                            onsubmit="return confirm('Yakin hapus donasi? \n\n>> {{ $item->title }} <<');">
+                            @csrf @method('delete')
+                            <button class="btn btn-danger" type="submit">
+                                Delete
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <P>{{ $item->deskripsi }}</P>
             <!-- Button trigger modal -->
             {{-- {{ dd($item) }} --}}
