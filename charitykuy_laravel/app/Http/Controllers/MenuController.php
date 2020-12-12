@@ -9,8 +9,12 @@ class MenuController extends Controller
 {
     public function read_menus()
     {
-        $menus = Menu::oldest()->paginate(3);
-        return view('home', compact('menus'));
+        $menus = Menu::whereTipe('donasi')->latest()->paginate(8);
+        $non_dnt = Menu::whereTipe('non donasi')->get();
+        return view('home', [
+            'menus' => $menus,
+            'non_dnt' => $non_dnt,
+            ]);
     }
 
     public function menu_detail(Menu $item)

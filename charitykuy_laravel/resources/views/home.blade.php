@@ -1,4 +1,4 @@
-@extends('layouts.app')@section('title', 'Home')
+@extends('layouts.app')
 
 @section('content')
 {{-- carousel (later move this to the app.blade.php) --}}
@@ -30,34 +30,48 @@
         </a>
     </div>
 
-    {{-- content card --}}
+    {{-- content non donation --}}
     <div class="row pt-4">
-        @foreach ($menus as $menu)
+        @foreach ($non_dnt as $menu_non)
         <div class="col-md-4">
             <div class="card text-center">
-                <img src="{{ asset('img_static').'/'.$menu->gambar }}" class="card-img-top" style="height: 15em;">
-                <div class="card-body d-flex flex-column text-center">
+                <div class="card-body">
+                    <a href="{{ route('menus.detail', $menu_non) }}"><img
+                            src="{{ asset('img_static').'/'.$menu_non->gambar }}" class="card-img-top"
+                            style="height: 10em; border:0;"></a>
+                </div>
+            </div>
+        </div>
+        @endforeach
+    </div>
+
+    
+    {{-- content donation card --}}
+    <div class="row pt-5">
+        @foreach ($menus as $menu)
+        <div class="col-md-3 pt-4">
+            <div class="card text-center" style="height: 39em; box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px;">
+                <img src="{{ asset('img_static').'/'.$menu->gambar }}" class="card-img-top" style="height: 8.7em;">
+                <div class="card-body text-center">
                     <h5 class="card-title">{{ $menu->title }}</h5>
-                    <p class="card-text" style="text-align: justify;">{{ $menu->deskripsi }}</p>
+                    <p class="card-text" style="text-align: justify">{{ $menu->deskripsi }}</p>
+                </div>
+                <div class="card-footer bg-white">
                     <div class="row px-2">
-                        @if($menu->tipe == 'donasi')
                         <div class="col-md-12 px-0">
                             <h5>Donasi yang sudah terkumpul</h5>
                         </div>
-                        <div class="col-md-12 pb-3 px-0">
+                        <div class="col-md-12 pb-4 px-0">
                             <div class="progress">
                                 <div class="progress-bar" role="progressbar" style="width: {{ $menu->progress }}%;"
                                     aria-valuenow="{{ $menu->progress }}" aria-valuemin="0" aria-valuemax="100">
                                     {{ number_format($menu->jumlah, 0, '', '.') }}</div>
                             </div>
+                        </div></div>
+                        <div class="card-footer bg-white">
+                        <div class="col-md-12 px-0">
+                            <a href="{{ route('menus.detail', $menu) }}" class="btn btn-primary">Donasi Sekarang</a>
                         </div>
-                        @endif
-                        <div class="col-md-12 px-0 pt-5">
-                            {{-- <a href="bencana.html"
-                                class="btn btn-primary">{{ ($menu->tipe == 'donasi') ? 'Donasi Sekarang' : 'Info' }}</a> --}}
-                                <a href="{{ route('menus.detail', $menu) }}"
-                                class="btn btn-primary">{{ ($menu->tipe == 'donasi') ? 'Donasi Sekarang' : 'Info' }}</a>
-                            </div>
                     </div>
 
                 </div>

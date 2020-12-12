@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md justify-content-between navbar-dark bg-white shadow-sm">
+<nav class="navbar navbar-expand-md justify-content-between navbar-light bg-info shadow-sm">
     <div class="container-fluid">
         <a class="navbar-brand" href={{ route('menus.read') }}><img src="{{ asset('/img_static/logoCharity.png') }}" width="150"></a>
 

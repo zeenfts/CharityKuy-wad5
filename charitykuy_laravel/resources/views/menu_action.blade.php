@@ -1,17 +1,23 @@
-@extends('layouts.app')@section('title', 'Home')
+@extends('layouts.app', ['title' => $item->title ])
+{{-- @section('title', $item->title) --}}
 
 @section('content')
 <div class="container">
     @include('layouts.carous')
 
-    <h1>DESKRIPSI</h1>
-    <P>Tuliskan tentang deskripsi donasi kemanusiaan</P>
-    <br><br><br>
-    <!-- Button trigger modal -->
-    {{-- {{ dd($item) }} --}}
-    <center><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-            {{ ($item->tipe == 'donasi') ? 'Start donation' : 'Start '.$item->title }}
-        </button></center>
+    <div class="row mt-4">
+        <div class="col-md-12 pt-3">
+            <h1>DESKRIPSI</h1>
+            <P>{{ $item->deskripsi }}</P>
+            <!-- Button trigger modal -->
+            {{-- {{ dd($item) }} --}}
+            <div class="row-md-auto text-center">
+                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                    {{ ($item->tipe == 'donasi') ? 'Start donation' : 'Start '.$item->title }}
+                </button>
+            </div>
+        </div>
+    </div>
 
     <!-- Modal -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -9,7 +9,8 @@
     {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
 
     {{-- <title>{{ config('app.names', 'None') }}</title> --}}
-    <title>@yield('title')</title>
+    {{-- <title>@yield('title')</title> --}}
+    <title>{{ isset($title) ? $title : 'Home' }}</title>
 
     <!-- Fonts -->
     {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}

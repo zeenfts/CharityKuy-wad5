@@ -48,6 +48,99 @@ class MenuSeeder extends Seeder
         ]);
 
         Menu::create([
+            'title' => 'Donasi Action Against Hunger',
+            'deskripsi' => 'Kami berharap langkah ini akan sedikit meringankan masalah kelaparan di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'hunger.png',
+            'jumlah' => 15000000,
+            'progress' => 65,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Room To Read',
+            'deskripsi' => 'Kami berharap langkah ini akan menyediakan buku pengetahuan di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'roomread.png',
+            'jumlah' => 25000000,
+            'progress' => 35,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Educate',
+            'deskripsi' => 'Kami berharap langkah ini akan membantu pembangunan fasilitas pendidikan di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'educate.png',
+            'jumlah' => 125000000,
+            'progress' => 85,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Save the Children',
+            'deskripsi' => 'Kami berharap langkah ini akan meningkatkan taraf hidup anak-anak di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'children.png',
+            'jumlah' => 7000000,
+            'progress' => 50,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Bencana I',
+            'deskripsi' => 'Kami berharap langkah ini akan sedikit meringankan
+            beban saudara kita yang menjadi korban bencana alam di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'bencana1.png',
+            'jumlah' => 7300000,
+            'progress' => 30,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Conservation International',
+            'deskripsi' => 'Kami berharap langkah ini akan memperbaiki keadaan alam di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'konservasi.png',
+            'jumlah' => 44300000,
+            'progress' => 40,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Water.org',
+            'deskripsi' => 'Kami berharap langkah ini akan meningkatkan pasokan air di wilayah Nusantara yang kekurangan dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'waterorg.png',
+            'jumlah' => 7600000,
+            'progress' => 60,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Bencana II',
+            'deskripsi' => 'Kami berharap langkah ini akan sedikit meringankan
+            beban saudara kita yang menjadi korban bencana alam di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'bencana2.png',
+            'jumlah' => 400000,
+            'progress' => 10,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Donasi Bencana III',
+            'deskripsi' => 'Kami berharap langkah ini akan sedikit meringankan
+            beban saudara kita yang menjadi korban bencana alam di wilayah Nusantara dan semoga kepedulian kita bersama dapat menjadi anugerah bagi
+            mereka yang lebih membutuhkan',
+            'gambar' => 'bencana3.png',
+            'jumlah' => 33300000,
+            'progress' => 60,
+            'tipe' => 'donasi'
+        ]);
+
+        Menu::create([
             'title' => 'Zakat',
             'deskripsi' => 'Mari sisihkan sebagian harta kita untuk melakukan zakat',
             'gambar' => 'zakat.png',
@@ -66,8 +159,8 @@ class MenuSeeder extends Seeder
         ]);
 
         Menu::create([
-            'title' => 'Haji',
-            'deskripsi' => 'Mari sisihkan sebagian harta kita untuk menabung haji',
+            'title' => 'Haji dan Umroh',
+            'deskripsi' => 'Mari sisihkan sebagian harta kita untuk menabung haji dan umroh',
             'gambar' => 'haji.png',
             'jumlah' => 0,
             'progress' => 0,
