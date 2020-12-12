@@ -92,4 +92,20 @@ class MenuController extends Controller
             return redirect()->route('menus.detail', $attr)->with('error', 'Donasi gagal diupdate!!');
         }
     }
+
+    public function delete_menu(Menu $item)
+    {
+        // $prod = Product::find($id_item);
+        if(File::exists(public_path('img_static').'/'.$item->gambar)){
+            File::delete(public_path('img_static').'/'.$item->gambar);
+        }
+        // else{
+        //     dd('File does not exists.');
+        // }
+        if($item->delete()){
+            return redirect(route('menus.index'))->with('success', 'Donasi telah dihapus');
+        }else{
+            return redirect(route('menus.index'))->with('error', 'Gagal menghapus donasi!!');
+        }
+    }
 }

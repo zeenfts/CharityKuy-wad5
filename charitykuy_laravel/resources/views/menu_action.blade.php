@@ -14,13 +14,47 @@
                         <a href="{{ route('menus.edit', $item) }}" class="btn btn-success w-100">Edit</a>
                     </div>
                     <div class="col-md-6">
-                        <form action="{{ ''}}" method="POST" class="form-inline"
-                            onsubmit="return confirm('Yakin hapus donasi? \n\n>> {{ $item->title }} <<');">
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_del">
+                            Delete
+                        </button>
+                        {{-- <form action="{{ route('menus.delete', $item) }}" method="POST" class="form-inline"
+                        onsubmit="return confirm('Yakin hapus donasi? \n\n>> {{ $item->title }} <<');">
                             @csrf @method('delete')
                             <button class="btn btn-danger" type="submit">
                                 Delete
                             </button>
-                        </form>
+                            </form> --}}
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="modal_del" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h5 class="modal-title" id="exampleModalLabel">
+                                                Yakin hapus donasi?
+                                            </h5>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>{{ $item->title }}</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">
+                                                Close
+                                            </button>
+                                            <form action="{{ route('menus.delete', $item)}}" method="POST">
+                                                @csrf @method('delete')
+                                                <button class="btn btn-danger" type="submit">
+                                                    Delete
+                                                </button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                 </div>
             </div>

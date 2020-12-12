@@ -11,4 +11,4 @@ Route::get('create', [MenuController::class, 'add_menu'])->name('menus.add');
 Route::post('create', [MenuController::class, 'store_menu'])->name('menus.store');
 Route::get('{item:id}/edit', [MenuController::class, 'edit_menu'])->name('menus.edit');
 Route::patch('{id}/edit', [MenuController::class, 'update_menu'])->name('menus.update');
-// Route::delete('{item:id}/delete',[MenuController::class, 'delete_menus'])->name('menus.delete');
+Route::delete('{item:id}/delete',[MenuController::class, 'delete_menu'])->name('menus.delete');
