@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md justify-content-between navbar-light bg-info shadow-sm">
+<nav class="navbar navbar-expand-md justify-content-between navbar-light bg-info shadow-sm sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href={{ route('menus.index') }}><img src="{{ asset('/img_static/logoCharity.png') }}" width="150"></a>
 
@@ -10,7 +10,7 @@
         {{-- search box --}}
         @if(request()->is('/'))
         <form class="form-inline" action="" method="GET">
-            <input class="form-control mr-sm-2" type="search" placeholder="Ingin berdonasi?" aria-label="Search"
+            <input class="form-control mr-sm-2" type="search" placeholder="Cari donasi?" aria-label="Search"
                 name="search_text">
             <button class="btn btn-outline-light my-2 my-sm-0" type="submit" name="searchh"><img
                     src="{{ asset('/img_static/search.png') }}" alt="" style="width:30px;height:30px;"></button>

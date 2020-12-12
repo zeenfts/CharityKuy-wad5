@@ -25,7 +25,7 @@
                             </button>
                             </form> --}}
 
-                            <!-- Modal -->
+                            <!-- Modal delete confirmation -->
                             <div class="modal fade" id="modal_del" tabindex="-1" role="dialog"
                                 aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog" role="document">
@@ -63,8 +63,13 @@
             {{-- {{ dd($item) }} --}}
             <div class="row-md-auto text-center">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    {{ ($item->tipe == 'donasi') ? 'Start donation' : 'Start '.$item->title }}
+                    {{ 'Start '.$item->title }}
                 </button>
+                @if($item->tipe == 'non donasi')
+                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                    {{ ($item->title == 'Zakat') ? 'Hitung '.$item->title : 'Tabungan '.$item->title }}
+                </button>
+                @endif
             </div>
         </div>
     </div>
