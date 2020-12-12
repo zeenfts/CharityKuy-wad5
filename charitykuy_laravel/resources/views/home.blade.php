@@ -33,7 +33,7 @@
     {{-- content non donation --}}
     <div class="row pt-4">
         @foreach ($non_dnt as $menu_non)
-        <div class="col-md-4">
+        <div class="col-md-4 pt-2">
             <div class="card text-center">
                 <div class="card-body">
                     <a href="{{ route('menus.detail', $menu_non) }}"><img

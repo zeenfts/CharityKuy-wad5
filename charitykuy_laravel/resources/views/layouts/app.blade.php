@@ -33,7 +33,7 @@
         @include('layouts.nav')
 
         <main class="py-5">
-            {{-- @include('layouts.alert') --}}
+            @include('layouts.alert')
             @yield('content')
         </main>
 

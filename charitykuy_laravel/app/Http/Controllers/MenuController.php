@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\File;
 
 class MenuController extends Controller
 {
@@ -29,9 +30,29 @@ class MenuController extends Controller
         return view('secondary/menu_add');
     }
 
-    public function store_menu()
+    public function store_menu(Request $request)
     {
-        // return view('secondary/menu_edit');
+        if(!$request->hasFile('img_path')){
+            $image='';
+        }else{
+            $image = request('img_path')->getClientOriginalName();
+            $PATH = 'img_static/'.$image;
+            File::put($PATH, file_get_contents(request('img_path')->getRealPath()));
+        }
+        $attr = new Menu();
+
+        $attr->title = request('titlee');
+        $attr->jumlah = request('jumlah');
+        $attr->progress = request('progress');
+        $attr->deskripsi = request('deskripsi');
+        $attr->tipe = request('tiped');
+        $attr->gambar = $image;
+
+        if($attr->save()){
+            return redirect()->route('menus.index')->with('success', 'Donasi ditambahkan');
+        }else{
+            return redirect()->route('menus.index')->with('error', 'Donasi gagal ditambahkan!!');
+        }
     }
 
     public function edit_menu(Menu $item)
@@ -41,8 +62,34 @@ class MenuController extends Controller
             ]);
     }
 
-    public function update_menu()
+    public function update_menu($item, Request $request)
     {
-        // return view('secondary/menu_add');
+        $attr = Menu::find($item);
+
+        $attr->title = request('titlee');
+        $attr->jumlah = request('jumlah');
+        $attr->progress = request('progress');
+        $attr->deskripsi = request('deskripsi');
+        $attr->tipe = request('tiped');
+
+        if(!$request->hasFile('img_path')){
+            $attr->gambar = request('img_hddn');
+        }else{
+            $image = request('img_path')->getClientOriginalName();
+            $PATH = 'img_static/'.$image;
+            File::put($PATH, file_get_contents(request('img_path')->getRealPath()));
+
+            if(File::exists(public_path('img_static').'/'.$attr->gambar)){
+                File::delete(public_path('img_static').'/'.$attr->gambar);
+            }
+
+            $attr->gambar = $image;
+        }
+
+        if($attr->save()){
+            return redirect()->route('menus.detail', $attr)->with('success', 'Donasi berhasil diupdate');
+        }else{
+            return redirect()->route('menus.detail', $attr)->with('error', 'Donasi gagal diupdate!!');
+        }
     }
 }
