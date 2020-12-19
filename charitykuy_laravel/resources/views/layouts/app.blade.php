@@ -16,10 +16,13 @@
     {{-- <link rel="dns-prefetch" href="//fonts.gstatic.com"> --}}
     {{-- <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet"> --}}
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     {{-- <style>
         body,
         html {
@@ -32,13 +35,13 @@
     <div id="app">
         @include('layouts.nav')
 
-        <main class="py-5">
+        <main class="py-5" style="background-color: aliceblue">
             @include('layouts.alert')
             @yield('content')
         </main>
 
         {{-- footer --}}
-        <div class="card-body card text-center pt-4">
+        <div class="card-body card text-center pt-4 bg-dark text-light">
             <h5 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h5>
             <p class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan lebih</p>
         </div>

@@ -63,7 +63,7 @@
             {{-- {{ dd($item) }} --}}
             <div class="row-md-auto text-center">
                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
-                    {{ 'Start '.$item->title }}
+                    {{ 'Mulai '.$item->title }}
                 </button>
                 @if($item->tipe == 'non donasi')
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
