@@ -10,11 +10,11 @@
             <div class="row justify-content-between px-2">
                 <h1>DESKRIPSI</h1>
                 <div class="row">
-                    @if(Auth()->user())
-                    <div class="col-md-6">
+                    @if(auth()->user())
+                    <div class="col-md-6 pr-2 pl-1">
                         <a href="{{ route('menus.edit', $item) }}" class="btn btn-success w-100">Edit</a>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 pl-0 pr-5">
                         <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_del">
                             Delete
                         </button>

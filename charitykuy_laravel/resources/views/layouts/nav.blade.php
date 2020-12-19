@@ -1,4 +1,5 @@
-<nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top" style="background-color: lightblue;">
+<nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top"
+    style="background: linear-gradient(to right, lightblue, #acb6e5);">
     <div class="container">
         <a class="navbar-brand" href={{ route('menus.index') }}><img src="{{ asset('/img_static/logoCharity.png') }}"
                 width="150"></a>
@@ -15,9 +16,11 @@
                     <a class="nav-link" href="{{ route('menus.index') }}"
                         style="font-family: 'Montserrat', sans-serif;">Home</a>
                 </li>
+                @if(auth()->user())
                 <li class="nav-item">
                     <a class="nav-link" href="#" style="font-family: 'Montserrat', sans-serif;">Transaksi</a>
                 </li>
+                @endif
             </ul>
 
             {{-- search box --}}
@@ -39,12 +42,15 @@
                 @guest
                 <li class="nav-item pr-2">
                     <a class="btn btn-outline-dark" href="{{ route('login') }}"
-                        style="font-family: 'Montserrat', sans-serif;">{{ __('Login') }}</a>
+                        style="font-family: 'Montserrat', sans-serif;"><i class="fa fa-sign-in" aria-hidden="true"></i>
+                        {{ __('Login') }}</a>
                 </li>
                 @if (Route::has('register'))
+                <div class="pt-2"></div>
                 <li class="nav-item">
                     <a class="btn btn-light" href="{{ route('register') }}"
-                        style="font-family: 'Nunito Sans', Times, serif;">{{ __('Register') }}</a>
+                        style="font-family: 'Nunito Sans', Times, serif;"><i class="fa fa-user-plus"
+                            aria-hidden="true"></i> {{ __('Register') }}</a>
                 </li>
                 @endif
                 @else
@@ -60,7 +66,8 @@
                         </a>
 
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
+                                        document.getElementById('logout-form').submit();"
+                            onmouseover="this.style.color='red';" onmouseout="this.style.color='';">
                             {{ __('Logout') }}
                         </a>
 

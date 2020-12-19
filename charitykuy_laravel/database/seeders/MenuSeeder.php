@@ -141,6 +141,33 @@ class MenuSeeder extends Seeder
         ]);
 
         Menu::create([
+            'title' => 'Infaq',
+            'deskripsi' => 'Mari sisihkan sebagian harta kita untuk diinfakkan',
+            'gambar' => 'infaq.jpg',
+            'jumlah' => 0,
+            'progress' => 0,
+            'tipe' => 'non donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Shodaqoh',
+            'deskripsi' => 'Mari sisihkan sebagian harta kita untuk shodaqoh',
+            'gambar' => 'sedekah.png',
+            'jumlah' => 0,
+            'progress' => 0,
+            'tipe' => 'non donasi'
+        ]);
+
+        Menu::create([
+            'title' => 'Wakaf',
+            'deskripsi' => 'Mari sisihkan sebagian harta kita untuk wakaf',
+            'gambar' => 'wakaf.jpg',
+            'jumlah' => 0,
+            'progress' => 0,
+            'tipe' => 'non donasi'
+        ]);
+
+        Menu::create([
             'title' => 'Zakat',
             'deskripsi' => 'Mari sisihkan sebagian harta kita untuk melakukan zakat',
             'gambar' => 'zakat.png',

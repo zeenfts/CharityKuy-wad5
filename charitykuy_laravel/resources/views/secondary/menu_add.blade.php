@@ -2,9 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
+    <a class="row justify-content-center text-dark" href="" style="text-decoration: none">
         <h3>Tambah Donasi</h3>
-    </div>
+    </a>
     <div class="row pt-4 justify-content-center">
         <div class="col-md-auto">
             <div class="card rounded-lg" style="width:45em; box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px;">
