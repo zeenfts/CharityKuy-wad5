@@ -4,6 +4,18 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
 
+// Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index')->middleware(['auth']);
+Route::get('/redirect', function(){
+    // if (!Auth()->check()) {
+    //     return redirect()->route('login');
+    // }
+
+    if(in_array(Auth()->user()->roles, ['admin_role', 'stakeholder'])) {
+        return redirect('dashboard');
+    }
+
+    return redirect('/'); // change to the regular user home page
+});
 Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index');
 Route::get('{item:id}/detail', [MenuController::class, 'menu_detail'])->name('menus.detail');
 

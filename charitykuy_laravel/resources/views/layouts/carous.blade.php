@@ -9,13 +9,13 @@
     <div class="carousel-inner">
         @if(request()->is('/'))
         <div class="carousel-item active">
-            <img src="{{ asset('/img_static/charity1.jpg') }}" class="d-block w-100" alt="...">
+            <img src="{{ asset('/img_static/charity1.jpg') }}" class="d-block w-100" alt="..." style="filter: blur(1.4px)">
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('/img_static/charity2.jpg') }}" class="d-block w-100" alt="...">
+            <img src="{{ asset('/img_static/charity2.jpg') }}" class="d-block w-100" alt="..." style="filter: blur(1.4px)">
         </div>
         <div class="carousel-item">
-            <img src="{{ asset('/img_static/charity3.jpg') }}" class="d-block w-100" alt="...">
+            <img src="{{ asset('/img_static/charity3.jpg') }}" class="d-block w-100" alt="..." style="filter: blur(1.4px)">
         </div>
         @else
         <div class="carousel-item active">

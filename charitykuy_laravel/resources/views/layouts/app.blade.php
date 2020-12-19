@@ -1,12 +1,13 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+{{-- <html lang="ID"> --}}
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- CSRF Token -->
-    {{-- <meta name="csrf-token" content="{{ csrf_token() }}"> --}}
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     {{-- <title>{{ config('app.names', 'None') }}</title> --}}
     {{-- <title>@yield('title')</title> --}}
@@ -31,7 +32,7 @@
     </style> --}}
 </head>
 
-<body>
+<body style="background-color: aliceblue">
     <div id="app">
         @include('layouts.nav')
 
@@ -41,10 +42,12 @@
         </main>
 
         {{-- footer --}}
+        @if(!(request()->is('login')) and !(request()->is('register')))
         <div class="card-body card text-center pt-4 bg-dark text-light">
             <h5 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h5>
             <p class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan lebih</p>
         </div>
+        @endif
     </div>
 
     <!-- Scripts -->

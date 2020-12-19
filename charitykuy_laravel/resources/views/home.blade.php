@@ -21,9 +21,23 @@
     </div>
 
     <div class="row pt-5">
+        @if(Auth()->user())
         <div class="col-md-12">
             <a href="{{ route('menus.add') }}" class="btn btn-secondary">+ Tambah Donasi Baru</a>
         </div>
+        @endif
+        {{-- <div class="col-md-12 pt-3">
+            <form class="form-row" action="" method="GET">
+                <div class="col-md-11">
+                    <input class="form-control mr-sm-2 shadow" type="search" placeholder="Cari donasi?" aria-label="Search"
+                        name="search_text">
+                </div>
+                <div class="col-md-1">
+                    <button class="btn btn-outline-info btn-block shadow" type="submit" name="searchh"><i class="fa fa-search"
+                            aria-hidden="true"></i></button>
+                </div>
+            </form>
+        </div> --}}
     </div>
 
     {{-- content donation card --}}
@@ -63,7 +77,7 @@
         </div>
         @endforeach
     </div>
-    <div class="d-flex justify-content-center pt-4">
+    <div class="d-flex justify-content-center pt-5">
         <div>
             {{ $menus->links() }}
         </div>

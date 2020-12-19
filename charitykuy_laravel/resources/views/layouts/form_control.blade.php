@@ -1,21 +1,21 @@
 <div class="form-group row-md-4">
-    Nama Donasi
-    <input type="text" class="form-control pt-1" required="required" value="{{ isset($item) ? $item->title : '' }}"
+    Nama Donasi 
+    <input type="text" class="form-control pt-1" required="required" value="{{ isset($item) ? $item->title : old('titlee') }}"
         name="titlee">
 </div>
 
 <div class="form-group">
     Description
-    <textarea name="deskripsi" id="body" rows=3 class="form-control pt-1" required>{{ isset($item) ? $item->deskripsi :'' }}
+    <textarea name="deskripsi" id="body" rows=3 class="form-control pt-1" required>{{ isset($item) ? $item->deskripsi : old('deskripsi') }}
     </textarea>
     {{-- <textarea name="description" id="body" rows=3 
         class="form-control pt-1 @error('body') is-invalid @enderror" required="required">
         {{ isset($item) ? $item->description : '' }}
-    </textarea>
-    @error('body')
-    <div class="mt-2 text-danger">
-        isilah
-    </div>
+    </textarea> --}}
+    {{-- @error('body')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
     @enderror --}}
 </div>
 
@@ -49,21 +49,21 @@
         <div class="input-group-prepend">
             <span class="input-group-text">Rp</span>
         </div>
-        <input type="number" class="form-control" value="{{ isset($item) ? $item->jumlah : ''}}" name="jumlah"
+        <input type="number" class="form-control" value="{{ isset($item) ? $item->jumlah : old('jumlah')}}" name="jumlah"
             step=".01" required>
     </div>
 </div>
 
 <div class="form-group row-md-4">
     Progress Donasi (%)
-    <input type="number" class="form-control pt-1" value="{{ isset($item) ? $item->progress : '' }}" name="progress"
+    <input type="number" class="form-control pt-1" value="{{ isset($item) ? $item->progress : old('progress') }}" name="progress"
         required>
 </div>
 
 <div class="form-group row-md-4">
     Gambar Thumbnail
     <div class="input-group pt-1">
-        <input type="hidden" name="img_hddn" value="{{ isset($item) ? $item->gambar : '' }}">
+        <input type="hidden" name="img_hddn" value="{{ isset($item) ? $item->gambar : old('img_hddn') }}">
         <input type="file" class="" accept="image/*" id="inputImage" name="img_path">
         {{-- <div class="custom-file">
             <input type="hidden" name="img_hddn" value="{{ isset($item) ? $item->gambar : '' }}">

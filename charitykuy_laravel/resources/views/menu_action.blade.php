@@ -10,6 +10,7 @@
             <div class="row justify-content-between px-2">
                 <h1>DESKRIPSI</h1>
                 <div class="row">
+                    @if(Auth()->user())
                     <div class="col-md-6">
                         <a href="{{ route('menus.edit', $item) }}" class="btn btn-success w-100">Edit</a>
                     </div>
@@ -56,15 +57,17 @@
                                 </div>
                             </div>
                     </div>
+                    @endif
                 </div>
             </div>
             <P>{{ $item->deskripsi }}</P>
             <!-- Button trigger modal -->
             {{-- {{ dd($item) }} --}}
             <div class="row-md-auto text-center">
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                <a type="button" class="btn btn-primary" data-toggle={{ (Auth()->user()) ? 'modal' : '' }}
+                    data-target="#exampleModal" href={{ !(Auth()->user()) ? route('login') : '#' }}>
                     {{ 'Mulai '.$item->title }}
-                </button>
+                </a>
                 @if($item->tipe == 'non donasi')
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
                     {{ ($item->title == 'Zakat') ? 'Hitung '.$item->title : 'Tabungan '.$item->title }}
