@@ -42,7 +42,7 @@
         </main>
 
         {{-- footer --}}
-        @if(!(request()->is('login')) and !(request()->is('register')))
+        @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')))
         <div class="card-body card text-center pt-4 bg-dark text-light shadow-sm">
             <h5 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h5>
             <p class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan lebih</p>

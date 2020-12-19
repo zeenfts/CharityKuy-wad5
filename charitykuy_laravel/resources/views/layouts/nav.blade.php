@@ -1,3 +1,33 @@
+@php
+$img_link = [
+    '//dd7tel2830j4w.cloudfront.net/f1510009325845x824160452699288700/A.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859392159x541018578223884100/B.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859409521x374254034366458600/C.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859450985x102933758404105900/D.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859468400x527699048863723900/E.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859500656x933212465140968600/F.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859530250x660503074061125500/G.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859562311x841428601648658600/H.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859576225x954706225078553000/I.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859606130x142825840273872020/J.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859626405x801974485861137500/K.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859675580x266716414131224160/L.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859704448x163864577189087870/M.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859836219x632431179517880000/N.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859891313x809682428138330600/O.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859936573x214360509533435100/P.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512859969136x620444205822423000/Q.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860044044x265613583382219070/R.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860078436x304001721553504450/S.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860094165x267422131728380920/T.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860119859x991487064631655800/U.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860143733x786652282346040000/V.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860158545x359364627161994560/W.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860180583x103629535995423790/X.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860233847x389071396784856900/Y.png',
+    '//dd7tel2830j4w.cloudfront.net/f1512860248120x569141123909503200/Z.png'
+];
+@endphp
 <nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top"
     style="background: linear-gradient(to right, lightblue, #acb6e5);">
     <div class="container">
@@ -54,14 +84,16 @@
                 </li>
                 @endif
                 @else
-                <li class="nav-item dropdown">
+                <li class="nav-item dropdown justify-content-end">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->name }}
+                        {{-- {{ Auth::user()->name[0] }}  --}}
+                        {{-- <input type="hidden" name="img_link" value="{{ isset($img_link) ? $img_link : '' }}"> --}}
+                        <img src="{{ $img_link[ord(strtoupper(auth()->user()->name[0])) - ord('A')] }}" class="rounded-circle" style="width: 2.5em; height: 2.5em" alt="">
                     </a>
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ '' }}">
+                        <a class="dropdown-item" href="{{ route('profile') }}">
                             {{ __('Profile') }}
                         </a>
 
@@ -81,10 +113,3 @@
         </div>
     </div>
 </nav>
-
-
-{{-- <nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top py-3" style="background-color: lightblue;">
-    <div class="container justify-content-center">
-
-    </div>
-</nav> --}}

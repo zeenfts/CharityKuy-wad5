@@ -16,6 +16,10 @@ Route::get('/redirect', function(){
 
     return redirect('/'); // change to the regular user home page
 });
+Route::get('profile', function(){
+    return view('layouts/profile');
+})->name('profile');
+
 Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index');
 Route::get('{item:id}/detail', [MenuController::class, 'menu_detail'])->name('menus.detail');
 
