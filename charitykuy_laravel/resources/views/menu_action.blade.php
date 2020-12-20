@@ -4,15 +4,13 @@
 @section('content')
 <div class="container">
     @error('nominal')
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <div class="alert alert-danger alert-dismissible fade show">
-                    {{ __('Gagal berdonasi!!') }}
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
+    <div class="row">
+        <div class="col">
+            <div class="alert alert-danger alert-dismissible fade show">
+                {{ __('Gagal berdonasi!!') }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
         </div>
     </div>
@@ -119,7 +117,7 @@
                                     class="col-form-label text-md-right">{{ __('Masukkan nominal') }}</label>
                                 <input type="number"
                                     class="form-control pt-1 rounded-pill @error('nominal') is-invalid @enderror"
-                                    value=0 name="nominal" id='nominal'>
+                                    name="nominal" id='nominal'>
                                 @error('nominal')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>

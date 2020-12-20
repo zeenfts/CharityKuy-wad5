@@ -31,7 +31,7 @@ $img_link = [
 <nav class="navbar navbar-expand-md navbar-light shadow-sm sticky-top"
     style="background: linear-gradient(to right, lightblue, #acb6e5);">
     <div class="container">
-        <a class="navbar-brand" href={{ route('menus.index') }}><img src="{{ asset('/img_static/logoCharity.png') }}"
+        <a class="navbar-brand" href={{ ((auth()->user()) and (auth()->user()->roles == 'admin_role')) ? route('menus.dashboard') : route('menus.index') }}><img src="{{ asset('/img_static/logoCharity.png') }}"
                 width="150"></a>
 
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -41,6 +41,7 @@ $img_link = [
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- main -->
+            @if((auth()->user()) and !(auth()->user()->roles == 'admin_role'))
             <ul class="navbar-nav font-weight-bold">
                 <li class="nav-item{{ (request()->is('/')) ? ' active' : '' }}">
                     <a class="nav-link" href="{{ route('menus.index') }}"
@@ -52,10 +53,11 @@ $img_link = [
                 </li>
                 @endif
             </ul>
+            @endif
 
             {{-- search box --}}
-            @if(request()->is('/'))
-            <form class="form-row ml-auto col-md-7 px-0" action="{{ route('menus.index') }}" method="GET" role="search">
+            @if(request()->is('/') or request()->is('dashboard'))
+            <form class="form-row ml-auto col-md-7 px-0" action="{{ ((auth()->user()) and (auth()->user()->roles == 'admin_role')) ? route('menus.dashboard') : route('menus.index') }}" method="GET" role="search">
                 @csrf
                 <div class="col-md-11 pr-0">
                     <input class="form-control mr-sm-2 pl-2 rounded-0" type="search" placeholder="Cari donasi?" aria-label="Search"

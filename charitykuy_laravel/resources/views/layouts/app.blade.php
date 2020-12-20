@@ -26,25 +26,88 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
-    {{-- <style>
-        body,
+    <style>
+        /* body,
         html {
             font-family: 'Montserrat', sans-serif;
+        } */
+
+        /* The side navigation menu */
+        .sidebar {
+            margin: 0;
+            padding: 0;
+            width: 200px;
+            background: linear-gradient(to top,#141e30, #243b55);
+            position: fixed;
+            height: 100%;
+            overflow: auto;
         }
-    </style> --}}
+
+        /* Sidebar links */
+        .sidebar a {
+            display: block;
+            color: white;
+            padding: 16px;
+            text-decoration: none;
+        }
+
+        /* Active/current link */
+        .sidebar a.active {
+            background-color: aliceblue;
+            color: #141e30;
+        }
+
+        /* Links on mouse-over */
+        .sidebar a:hover:not(.active) {
+            background: linear-gradient(to right, lightblue, #acb6e5);
+            color: #141e30;
+        }
+
+        /* Page content. The value of the margin-left property should match the value of the sidebar's width property */
+        div.content {
+            margin-left: 200px;
+            padding: 1px 16px;
+            height: 1000px;
+        }
+
+        /* On screens that are less than 700px wide, make the sidebar into a topbar */
+        @media screen and (max-width: 700px) {
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+
+            .sidebar a {
+                float: left;
+            }
+
+            div.content {
+                margin-left: 0;
+            }
+        }
+
+        /* On screens that are less than 400px, display the bar vertically, instead of horizontally */
+        @media screen and (max-width: 400px) {
+            .sidebar a {
+                text-align: center;
+                float: none;
+            }
+        }
+    </style>
 </head>
 
 <body style="background-color: aliceblue">
     <div id="app">
         @include('layouts.nav')
 
-        <main class="py-5" style="background-color: aliceblue">
+        <main class="{{ (!request()->is('dashboard')) ? ' py-5' : '' }}" style="background-color: aliceblue">
             @include('layouts.alert')
             @yield('content')
         </main>
 
         {{-- footer --}}
-        @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')))
+        @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')) and !(request()->is('dashboard')))
         <div class="card-body card text-center pt-4 bg-dark text-light shadow-sm">
             <h6 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h6>
             <small class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan

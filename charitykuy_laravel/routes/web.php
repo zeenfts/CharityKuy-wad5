@@ -17,14 +17,11 @@ Route::get('/redirect', function(){
 
     return redirect('/'); // change to the regular user home page
 });
-Route::get('profile', function(){
-    return view('layouts/profile');
-})->name('profile');
-Route::get('zakat/hitung', function(){
-    return view('secondary/hitung_zakat');
-})->name('zakat.hitung');
 
 Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index');
+Route::get('dashboard', function(){
+    return view('dashboard');
+})->name('menus.dashboard');
 Route::get('{item:id}/detail', [MenuController::class, 'menu_detail'])->name('menus.detail');
 
 Route::get('create', [MenuController::class, 'add_menu'])->name('menus.add');
@@ -34,3 +31,10 @@ Route::patch('{id}/edit', [MenuController::class, 'update_menu'])->name('menus.u
 Route::delete('{item:id}/delete',[MenuController::class, 'delete_menu'])->name('menus.delete');
 
 Route::post('{id}/bayar', [TransactionController::class, 'bayar_donasi'])->name('trans.pay');
+
+Route::get('profile', function(){
+    return view('layouts/profile');
+})->name('profile');
+Route::get('zakat/hitung', function(){
+    return view('secondary/hitung_zakat');
+})->name('zakat.hitung');
