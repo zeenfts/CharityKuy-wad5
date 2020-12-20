@@ -30,6 +30,7 @@ Route::get('dashboard/transactions', [TransactionController::class, 'read_transc
 Route::get('dashboard/users', [UserController::class, 'read_users'])->name('dashboard.users');
 
 Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index');
+Route::get('{id}/transaksi', [TransactionController::class, 'read_transc'])->name('menus.transaksi');
 Route::get('{item:id}/detail', [MenuController::class, 'menu_detail'])->name('menus.detail');
 
 Route::get('create', [MenuController::class, 'add_menu'])->name('menus.add');

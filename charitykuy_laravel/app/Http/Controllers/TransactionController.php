@@ -21,9 +21,19 @@ class TransactionController extends Controller
             ->orwhere('pembayaran', 'LIKE', '%' . $q . '%')->get();
         // $trsc = User::with('do_trans')->where('name', 'LIKE', '%' . $q . '%')->get();
 
+        if(request()->segment(2) == 'transaksi'){
+            $trsc = Transaction::where('status', 'LIKE', '%' . $q . '%')->latest()->paginate(9);
+        }
+
         if (count($trsc) <= 0) {
             if(request()->is('dashboard')){
                 return view('admins/main', [
+                    'transactions' => $trsc,
+                ])->with('error', 'Tidak ada transaksi tersebut');
+            }
+
+            if(request()->segment(2) == 'transaksi'){
+                return view('user_trans', [
                     'transactions' => $trsc,
                 ])->with('error', 'Tidak ada transaksi tersebut');
             }
@@ -35,6 +45,12 @@ class TransactionController extends Controller
 
         if(request()->is('dashboard')){
             return view('admins/main', [
+                'transactions' => $trsc,
+            ]);
+        }
+
+        if(request()->segment(2) == 'transaksi'){
+            return view('user_trans', [
                 'transactions' => $trsc,
             ]);
         }

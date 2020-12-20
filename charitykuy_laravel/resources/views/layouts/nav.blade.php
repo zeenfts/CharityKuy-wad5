@@ -50,14 +50,14 @@ $img_link = [
                 </li>
                 @if(auth()->user())
                 <li class="nav-item">
-                    <a class="nav-link" href="#" style="font-family: 'Montserrat', sans-serif;">Transaksi</a>
+                    <a class="nav-link{{ (request()->segment(2) == 'transaksi') ? ' active' : '' }}" href="{{ route('menus.transaksi', auth()->user()->id) }}" style="font-family: 'Montserrat', sans-serif;">Transaksi</a>
                 </li>
                 @endif
             </ul>
             @endif
 
             {{-- search box --}}
-            @if(request()->is('/') or request()->segment(1) == 'dashboard')
+            @if(request()->is('/') or request()->segment(1) == 'dashboard' or request()->segment(2) == 'transaksi')
             <form class="form-row ml-auto col-md-7 px-0" action="" method="GET" role="search">
                 @csrf
                 <div class="col-md-11 pr-0">

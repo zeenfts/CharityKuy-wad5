@@ -37,7 +37,7 @@
             margin: 0;
             padding: 0;
             width: 200px;
-            background: linear-gradient(to top,#141e30, #243b55);
+            background: linear-gradient(to top, #141e30, #243b55);
             position: fixed;
             height: 100%;
             overflow: auto;
@@ -107,8 +107,10 @@
         </main>
 
         {{-- footer --}}
-        @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')) and !(request()->segment(1) == 'dashboard'))
-        <div class="card-body card text-center pt-4 bg-dark text-light shadow-sm">
+        @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')) and
+        !(request()->segment(1) == 'dashboard'))
+        <div class="card-body card text-center pt-4 bg-dark text-light shadow-sm" {!! request()->segment(2) ==
+            'transaksi' ? 'style="margin-top:22.9em"' : '' !!}>
             <h6 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h6>
             <small class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan
                 lebih</small>
