@@ -49,7 +49,7 @@ class MenuController extends Controller
         $attr->gambar = $image;
 
         if($attr->save()){
-            return redirect()->route('menus.index')->with('success', 'Donasi ditambahkan');
+            return redirect()->route('menus.index')->with('status', 'Donasi ditambahkan');
         }else{
             return redirect()->route('menus.index')->with('error', 'Donasi gagal ditambahkan!!');
         }
@@ -87,7 +87,7 @@ class MenuController extends Controller
         }
 
         if($attr->save()){
-            return redirect()->route('menus.detail', $attr)->with('success', 'Donasi berhasil diupdate');
+            return redirect()->route('menus.detail', $attr)->with('status', 'Donasi berhasil diupdate');
         }else{
             return redirect()->route('menus.detail', $attr)->with('error', 'Donasi gagal diupdate!!');
         }
@@ -103,7 +103,7 @@ class MenuController extends Controller
         //     dd('File does not exists.');
         // }
         if($item->delete()){
-            return redirect(route('menus.index'))->with('success', 'Donasi telah dihapus');
+            return redirect(route('menus.index'))->with('status', 'Donasi telah dihapus');
         }else{
             return redirect(route('menus.index'))->with('error', 'Gagal menghapus donasi!!');
         }

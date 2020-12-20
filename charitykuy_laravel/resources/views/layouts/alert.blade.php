@@ -1,9 +1,9 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            @if (session()->has('success'))
+            @if (session()->has('status'))
             <div class="alert alert-success alert-dismissible fade show">
-                {{ session()->get('success') }}
+                {{ session()->get('status') }}
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

@@ -15,6 +15,6 @@ return [
 
     'failed' => 'Mohon maaf informasi akun tidak sesuai!!',
     'password' => 'Mohon maaf periksa kembali email atau password!!',
-    'throttle' => 'Terlalu banyak percobaan login. Silahka coba kembali dalam :seconds seconds.',
+    'throttle' => 'Terlalu banyak percobaan login. Silahkan coba kembali dalam :seconds detik.',
 
 ];

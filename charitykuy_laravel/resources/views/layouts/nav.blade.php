@@ -55,13 +55,13 @@ $img_link = [
 
             {{-- search box --}}
             @if(request()->is('/'))
-            <form class="form-row ml-auto" action="" method="GET">
-                <div class="col-md-11">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Cari donasi?" aria-label="Search"
+            <form class="form-row ml-auto col-md-7 px-0" action="" method="GET">
+                <div class="col-md-11 pr-0">
+                    <input class="form-control mr-sm-2 pl-2 rounded-0" type="search" placeholder="Cari donasi?" aria-label="Search"
                         name="search_text">
                 </div>
-                <div class="col-md-1">
-                    <button class="btn btn-outline-secondary" type="submit" name="searchh"><i class="fa fa-search"
+                <div class="col-md-1 pl-0">
+                    <button class="btn btn-outline-secondary rounded-0" type="submit" name="searchh"><i class="fa fa-search"
                             aria-hidden="true"></i></button>
                 </div>
             </form>
@@ -94,13 +94,13 @@ $img_link = [
 
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{ route('profile') }}">
-                            {{ __('Profile') }}
+                            <i class="fa fa-user" aria-hidden="true"></i> {{ __('Profile') }}
                         </a>
 
                         <a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();"
                             onmouseover="this.style.color='red';" onmouseout="this.style.color='';">
-                            {{ __('Logout') }}
+                            <i class="fa fa-sign-out" aria-hidden="true"></i> {{ __('Logout') }}
                         </a>
 
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

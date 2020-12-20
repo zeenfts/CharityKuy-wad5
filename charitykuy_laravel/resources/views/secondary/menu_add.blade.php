@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <a class="row justify-content-center text-dark" href="" style="text-decoration: none">
-        <h3>Tambah Donasi</h3>
+        <h3><i class="fa fa-plus-square" aria-hidden="true"></i> Tambah Donasi</h3>
     </a>
     <div class="row pt-4 justify-content-center">
         <div class="col-md-auto">
@@ -17,6 +17,12 @@
                         @include('layouts.form_control')
                     </form>
                 </div>
+            </div>
+
+            <div class="text-center pt-3">
+                <a class="navbar-brand" href={{ route('menus.index') }}>
+                    <img src="{{ asset('/img_static/logoCharity.png') }}" width="150">
+                </a>
             </div>
         </div>
     </div>

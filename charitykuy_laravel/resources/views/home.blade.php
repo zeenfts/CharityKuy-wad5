@@ -23,7 +23,8 @@
     <div class="row pt-5">
         @if(auth()->user())
         <div class="col-md-12">
-            <a href="{{ route('menus.add') }}" class="btn btn-secondary">+ Tambah Donasi Baru</a>
+            <a href="{{ route('menus.add') }}" class="btn btn-secondary"><i class="fa fa-plus" aria-hidden="true"></i>
+                Tambah Donasi Baru</a>
         </div>
         @endif
         {{-- <div class="col-md-12 pt-3">
@@ -72,7 +73,8 @@
                         <div class="col-md-12 px-0">
                             {{-- <a href="{{ route('menus.detail', $menu) }}" class="btn btn-primary">Donasi Sekarang
             </a> --}}
-            <button type="button" class="btn btn-outline-primary rounded-pill W-10">Donasi Sekarang</button>
+            <button type="button" class="btn btn-outline-primary rounded-pill W-10"><i class="fas fa-donate"
+                    aria-hidden="true"></i> &nbsp;Donasi Sekarang</button>
         </div>
     </div>
 </div>

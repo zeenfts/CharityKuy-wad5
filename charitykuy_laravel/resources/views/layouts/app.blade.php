@@ -24,6 +24,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css"
         integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/all.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.1/css/v4-shims.css">
     {{-- <style>
         body,
         html {
@@ -44,8 +46,9 @@
         {{-- footer --}}
         @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')))
         <div class="card-body card text-center pt-4 bg-dark text-light shadow-sm">
-            <h5 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h5>
-            <p class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan lebih</p>
+            <h6 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h6>
+            <small class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan
+                lebih</small>
         </div>
         @endif
     </div>
@@ -60,6 +63,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js"
         integrity="sha384-w1Q4orYjBQndcko6MimVbzY0tgp4pWB4lZ7lr30WKz0vr/aWKhXdBNmNb5D92v7s" crossorigin="anonymous">
     </script>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/all.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.15.1/js/v4-shims.js"></script>
 </body>
 
 </html>

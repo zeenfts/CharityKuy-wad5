@@ -1,12 +1,12 @@
 <div class="form-group row-md-4"> 
-    <label for="titlee" class="col-form-label text-md-right">{{ __('Nama Donasi') }}</label>
-    <input type="text" class="form-control pt-1" required="required" value="{{ isset($item) ? $item->title : old('titlee') }}"
+    <label for="titlee" class="col-form-label text-md-right pl-2">{{ __('Nama Donasi') }}</label>
+    <input type="text" class="form-control pt-1 rounded-pill" required="required" value="{{ isset($item) ? $item->title : old('titlee') }}"
         name="titlee" id='titlee'>
 </div>
 
 <div class="form-group">
-    <label for="body" class="col-form-label text-md-right">{{ __('Description') }}</label>
-    <textarea name="deskripsi" id="body" rows=3 class="form-control pt-1" required>{{ isset($item) ? $item->deskripsi : old('deskripsi') }}
+    <label for="body" class="col-form-label text-md-right pl-2">{{ __('Description') }}</label>
+    <textarea name="deskripsi" id="body" rows=3 class="form-control pt-1 rounded-lg" required>{{ isset($item) ? $item->deskripsi : old('deskripsi') }}
     </textarea>
     {{-- <textarea name="description" id="body" rows=3 
         class="form-control pt-1 @error('body') is-invalid @enderror" required="required">
@@ -19,7 +19,7 @@
     @enderror --}}
 </div>
 
-<div class="form-group row-md-4">
+<div class="form-group row-md-4 pl-2">
     <label for="" class="col-form-label text-md-right">{{ __('Tipe Donasi') }}</label>
     <div class="row-md-4 pt-1">
         @if(isset($item))
@@ -44,27 +44,27 @@
 </div>
 
 <div class="form-group row-md-4">
-    <label for="jumlah" class="col-form-label text-md-right">{{ __('Jumlah Donasi') }}</label>
+    <label for="jumlah" class="col-form-label text-md-right pl-2">{{ __('Jumlah Donasi') }}</label>
     <div class="input-group pt-1">
-        <div class="input-group-prepend">
-            <span class="input-group-text">Rp</span>
+        <div class="input-group-prepend pr-1">
+            <span class="input-group-text rounded-pill">Rp</span>
         </div>
-        <input type="number" class="form-control" value="{{ isset($item) ? $item->jumlah : old('jumlah')}}" name="jumlah" id="jumlah"
+        <input type="number" class="form-control rounded-pill" value="{{ isset($item) ? $item->jumlah : old('jumlah')}}" name="jumlah" id="jumlah"
             step=".01" required>
     </div>
 </div>
 
 <div class="form-group row-md-4">
-    <label for="progress" class="col-form-label text-md-right">{{ __('Progress Donasi (%)') }}</label>
-    <input type="number" class="form-control pt-1" value="{{ isset($item) ? $item->progress : old('progress') }}" name="progress" id='progress'
+    <label for="progress" class="col-form-label text-md-right pl-2">{{ __('Progress Donasi (%)') }}</label>
+    <input type="number" class="form-control pt-1 rounded-pill" value="{{ isset($item) ? $item->progress : old('progress') }}" name="progress" id='progress'
         required>
 </div>
 
 <div class="form-group row-md-4">
-    <label for="inputImage" class="col-form-label text-md-right">{{ __('Gambar Thumbnail') }}</label>
+    <label for="inputImage" class="col-form-label text-md-right pl-2">{{ __('Gambar Thumbnail') }}</label>
     <div class="input-group pt-1">
         <input type="hidden" name="img_hddn" value="{{ isset($item) ? $item->gambar : old('img_hddn') }}">
-        <input type="file" class="" accept="image/*" id="inputImage" name="img_path">
+        <input type="file" class="pl-2" accept="image/*" id="inputImage" name="img_path">
         {{-- <div class="custom-file">
             <input type="hidden" name="img_hddn" value="{{ isset($item) ? $item->gambar : '' }}">
         <input type="file" class="custom-file-input" accept="image/*" id="inputImage" name="img_path">

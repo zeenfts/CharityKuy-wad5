@@ -12,11 +12,13 @@
                 <div class="row">
                     @if(auth()->user())
                     <div class="col-md-6 pr-2 pl-1">
-                        <a href="{{ route('menus.edit', $item) }}" class="btn btn-success w-100">Edit</a>
+                        <a href="{{ route('menus.edit', $item) }}" class="btn btn-success w-100"><i class="fa fa-edit"
+                                aria-hidden="true"></i> Edit</a>
                     </div>
                     <div class="col-md-6 pl-0 pr-5">
-                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_del">
-                            Delete
+                        <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#modal_del"
+                            style="width: 6.5em;">
+                            <i class="fa fa-trash-o"></i> Delete
                         </button>
                         {{-- <form action="{{ route('menus.delete', $item) }}" method="POST" class="form-inline"
                         onsubmit="return confirm('Yakin hapus donasi? \n\n>> {{ $item->title }} <<');">
@@ -44,12 +46,12 @@
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                                                Close
+                                                Cancel
                                             </button>
                                             <form action="{{ route('menus.delete', $item)}}" method="POST">
                                                 @csrf @method('delete')
                                                 <button class="btn btn-danger" type="submit">
-                                                    Delete
+                                                    <i class="fa fa-trash-o"></i> Delete
                                                 </button>
                                             </form>
                                         </div>
@@ -66,11 +68,13 @@
             <div class="row-md-auto text-center">
                 <a type="button" class="btn btn-primary" data-toggle={{ (Auth()->user()) ? 'modal' : '' }}
                     data-target="#exampleModal" href={{ !(Auth()->user()) ? route('login') : '#' }}>
-                    {{ 'Mulai '.$item->title }}
+                    <i class="fas fa-donate" aria-hidden="true"></i>&nbsp; {{ 'Mulai '.$item->title }}
                 </a>
                 @if($item->tipe == 'non donasi')
                 <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
-                    {{ ($item->title == 'Zakat') ? 'Hitung '.$item->title : 'Tabungan '.$item->title }}
+                    <i class="{{ ($item->title == 'Zakat') ? 'fas fa-cash-register' : 'fas fa-wallet' }}"
+                        aria-hidden="true"></i>&nbsp;
+                    {{ ($item->title == 'Zakat') ? 'Hitung ' : 'Tabungan ' }}{{ $item->title }}
                 </button>
                 @endif
             </div>
