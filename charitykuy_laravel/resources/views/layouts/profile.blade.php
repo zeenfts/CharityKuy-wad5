@@ -22,13 +22,16 @@
                                 <img src="{{ request('avatar1') }}"
                                     style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                             </div>
-                            <div class="col-md-8">
+                            <div class="col-md-8 px-0">
                                 <label>Update Profile Image</label>
                                 <input type="hidden" name="avatar2"
                                     value="{{ isset($item) ? $item->gambar : old('avatar2') }}">
                                 <input type="file" class="pl-2" accept="image/*" id="inputAvatar" name="avatar1">
                                 {{-- <input type="hidden" name="_token" value="{{ csrf_token() }}"> --}}
-                                {{-- <input type="submit" class="pull-right btn btn-sm btn-primary"> --}}
+                                <div class="pt-5 mt-1 text-right">
+                                    <button type="submit" class="btn btn-sm btn-dark rounded-pill" disabled>{{ __('Update Avatar') }}</button>
+                                </div>
+                                
                             </div>
                         </form>
                     </div>
@@ -69,7 +72,7 @@
                         <div class="form-group row mb-0 mt-5">
                             <div class="col-md-12">
                                 <button type="submit" class="btn btn-primary btn-block rounded-pill">
-                                    {{ __('Update info') }}
+                                    {{ __('Update Info') }}
                                 </button></div>
                         </div>
                     </form>

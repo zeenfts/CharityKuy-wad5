@@ -101,13 +101,13 @@
     <div id="app">
         @include('layouts.nav')
 
-        <main class="{{ (!request()->is('dashboard')) ? ' py-5' : '' }}" style="background-color: aliceblue">
+        <main class="{{ (!request()->segment(1) == 'dashboard') ? ' py-5' : '' }}" style="background-color: aliceblue">
             @include('layouts.alert')
             @yield('content')
         </main>
 
         {{-- footer --}}
-        @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')) and !(request()->is('dashboard')))
+        @if(!(request()->is('login')) and !(request()->is('register')) and !(request()->is('profile')) and !(request()->segment(1) == 'dashboard'))
         <div class="card-body card text-center pt-4 bg-dark text-light shadow-sm">
             <h6 class="card-title">&#169 2020 Group5 SISTEM INFORMASI 4208</h6>
             <small class="card-text">Dengan Donasi yang sudah kita lakukan, yakinlah Tuhan akan membalas dengan

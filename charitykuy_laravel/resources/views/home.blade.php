@@ -57,7 +57,7 @@
                     </div>
                 </div>
                 <div class="card-footer bg-white">
-                    <div class="row px-2">
+                    <div class="row px-2" data-toggle="tooltip" data-placement="top" title="{{ $menu->progress }}%">
                         <div class="col-md-12 px-0">
                             <h6>Donasi yang sudah terkumpul</h6>
                         </div>

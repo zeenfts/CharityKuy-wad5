@@ -20,8 +20,17 @@ Route::get('/redirect', function(){
 
 Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index');
 Route::get('dashboard', function(){
-    return view('dashboard');
-})->name('menus.dashboard');
+    return view('admins/main');
+})->name('dashboard.main');
+Route::get('dashboard/donations', function(){
+    return view('admins/donate');
+})->name('dashboard.donations');
+Route::get('dashboard/transactions', function(){
+    return view('admins/transactions');
+})->name('dashboard.transactions');
+Route::get('dashboard/users', function(){
+    return view('admins/users');
+})->name('dashboard.users');
 Route::get('{item:id}/detail', [MenuController::class, 'menu_detail'])->name('menus.detail');
 
 Route::get('create', [MenuController::class, 'add_menu'])->name('menus.add');

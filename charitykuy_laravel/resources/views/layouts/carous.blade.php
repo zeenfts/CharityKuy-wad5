@@ -19,7 +19,7 @@
         </div>
         @else
         <div class="carousel-item active">
-            <img src="{{ asset('img_static').'/'.$item->gambar }}" class="d-block w-100" alt="...">
+            <img src="{{ asset('img_static').'/'.$item->gambar }}" class="d-block w-100" height="430">
         </div>
         @endif
     </div>
