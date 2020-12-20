@@ -26,12 +26,6 @@ class TransactionController extends Controller
         }
 
         if (count($trsc) <= 0) {
-            if(request()->is('dashboard')){
-                return view('admins/main', [
-                    'transactions' => $trsc,
-                ])->with('error', 'Tidak ada transaksi tersebut');
-            }
-
             if(request()->segment(2) == 'transaksi'){
                 return view('user_trans', [
                     'transactions' => $trsc,
@@ -41,12 +35,6 @@ class TransactionController extends Controller
             return view('admins/transactions', [
                 'transactions' => $trsc,
             ])->with('error', 'Tidak ada transaksi tersebut');
-        }
-
-        if(request()->is('dashboard')){
-            return view('admins/main', [
-                'transactions' => $trsc,
-            ]);
         }
 
         if(request()->segment(2) == 'transaksi'){

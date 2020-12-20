@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
@@ -19,12 +19,7 @@ Route::get('/redirect', function () {
     return redirect('/'); // change to the regular user home page
 });
 
-// Route::get('dashboard', function(){
-//     return view('admins/main');
-// })->name('dashboard.main');
-Route::get('dashboard', [MenuController::class, 'read_menus'])->name('dashboard.main');
-// Route::get('dashboard', [TransactionController::class, 'read_transc'])->name('dashboard.main');
-// Route::get('dashboard', [UserController::class, 'read_users'])->name('dashboard.main');
+Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.main');
 Route::get('dashboard/donations', [MenuController::class, 'read_menus'])->name('dashboard.donations');
 Route::get('dashboard/transactions', [TransactionController::class, 'read_transc'])->name('dashboard.transactions');
 Route::get('dashboard/users', [UserController::class, 'read_users'])->name('dashboard.users');

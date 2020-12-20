@@ -19,20 +19,9 @@ class MenuController extends Controller
             ->orwhere('tipe', 'LIKE', '%' . $q . '%')->latest()->paginate(5);
         }
 
-        if(request()->is('dashboard')){
-            $menus = Menu::where('title', 'LIKE', '%' . $q . '%')
-            ->orwhere('tipe', 'LIKE', '%' . $q . '%')->get();
-        }
-
         if (count($menus) <= 0) {
             if(request()->segment(2) == 'donations'){
                 return view('admins/donate', [
-                    'menus' => $menus,
-                ])->with('error', 'Tidak ada donasi tersebut');
-            }
-
-            if(request()->is('dashboard')){
-                return view('admins/main', [
                     'menus' => $menus,
                 ])->with('error', 'Tidak ada donasi tersebut');
             }
@@ -48,13 +37,7 @@ class MenuController extends Controller
                 'menus' => $menus,
                 ]);
         }
-
-        if(request()->is('dashboard')){
-            return view('admins/main', [
-                'menus' => $menus,
-            ]);
-        }
-
+        
         return view('home', [
             'menus' => $menus,
             'non_dnt' => $non_dnt,
