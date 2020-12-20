@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Transaction;
+use App\Models\Menu;
 use App\Models\User;
+use App\Models\Transaction;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -15,10 +16,10 @@ class TransactionController extends Controller
         // $trsc = Transaction::with('trans_by')->where('user_id', 'LIKE', '%' . $q . '%')->latest()->paginate(9);
         $trsc = DB::table('transactions')
             ->leftJoin('users', 'transactions.user_id', '=', 'users.id')
-            ->leftJoin('menus', 'transactions.menu_id', '=', 'menus.id')
+            ->leftJoin('menus', 'menu_id', '=', 'menus.id')
             ->where('name', 'LIKE', '%' . $q . '%')
             ->orwhere('title', 'LIKE', '%' . $q . '%')
-            ->orwhere('pembayaran', 'LIKE', '%' . $q . '%')->get();
+            ->orwhere('pembayaran', 'LIKE', '%' . $q . '%')->get(['transactions.*', 'users.name', 'menus.title']);
         // $trsc = User::with('do_trans')->where('name', 'LIKE', '%' . $q . '%')->get();
 
         if(request()->segment(2) == 'transaksi'){
@@ -66,5 +67,39 @@ class TransactionController extends Controller
             return redirect()->route('menus.index', $attr)->with('status', 'Menunggu konfirmasi');
         }
         return redirect()->route('menus.index', $attr)->with('error', 'Gagal berdonasi!!');
+    }
+
+    public function confirm_transc($key_trsc)
+    {
+        // dd($key_trsc);
+        $attr = Transaction::find($key_trsc);
+        // dd($attr);
+        // $attr->menu_id = $key_trsc->menu_id;
+        // $attr->user_id = $key_trsc->user_id;
+        // $attr->pembayaran = $key_trsc->pembayaran;
+
+        if(request('money_ver')){
+            $attr->status = 'Terverifikasi';
+            $attr->money = intval(request('money_ver'));
+        }elseif(request('money_non')){
+            $attr->status = 'Tidak diterima';
+            $attr->money = intval(request('money_non'));
+        }
+
+        // dd($attr);
+        $dnts = Menu::find($attr->menu_id);
+
+        $total_dnt = 100 / $dnts->progress * $dnts->jumlah;
+        $dnts->jumlah += $attr->money;
+        $dnts->progress = $dnts->jumlah / $total_dnt * 100;
+        $dnts->progress = intval($dnts->progress);
+        // dd($dnts);
+        if($attr->save() and $dnts->save()){
+            if($attr->status == 'Terverifikasi'){
+                return redirect()->route('dashboard.transactions')->with('status', 'Pembayaran terverifikasi');
+            }
+            return redirect()->route('dashboard.transactions')->with('status', 'Pembayaran ditolak');
+        }
+        return redirect()->route('dashboard.transactions')->with('error', 'Pembayaran gagal dikonfirmasi!!');
     }
 }

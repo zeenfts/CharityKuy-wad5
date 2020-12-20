@@ -23,6 +23,7 @@ Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard.
 Route::get('dashboard/donations', [MenuController::class, 'read_menus'])->name('dashboard.donations');
 Route::get('dashboard/transactions', [TransactionController::class, 'read_transc'])->name('dashboard.transactions');
 Route::get('dashboard/users', [UserController::class, 'read_users'])->name('dashboard.users');
+Route::patch('dashboard/transactions/{id}/edit', [TransactionController::class, 'confirm_transc'])->name('dashboard.confirm');
 
 Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index');
 Route::get('{id}/transaksi', [TransactionController::class, 'read_transc'])->name('menus.transaksi');

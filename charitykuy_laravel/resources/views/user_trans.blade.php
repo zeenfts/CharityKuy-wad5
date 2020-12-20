@@ -23,7 +23,7 @@
                     <tr>
                         @if($trsc->status == 'Menunggu konfirmasi')
                         @php $color_status = 'text-warning' @endphp
-                        @elseif($trsc->status == 'Terkonfirmasi')
+                        @elseif($trsc->status == 'Terverifikasi')
                         @php $color_status = 'text-success' @endphp
                         @else
                         @php $color_status = 'text-danger' @endphp

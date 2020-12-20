@@ -21,7 +21,7 @@ class DashboardController extends Controller
             ->leftJoin('menus', 'transactions.menu_id', '=', 'menus.id')
             ->where('name', 'LIKE', '%' . $q . '%')
             ->orwhere('title', 'LIKE', '%' . $q . '%')
-            ->orwhere('pembayaran', 'LIKE', '%' . $q . '%')->get();
+            ->orwhere('pembayaran', 'LIKE', '%' . $q . '%')->get(['transactions.*', 'users.name', 'menus.title']);
 
         $menus = Menu::where('title', 'LIKE', '%' . $q . '%')
             ->orwhere('tipe', 'LIKE', '%' . $q . '%')->get();

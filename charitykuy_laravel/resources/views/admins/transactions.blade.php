@@ -14,6 +14,7 @@
                         <th scope="col">User</th>
                         <th scope="col">Pembayaran</th>
                         <th scope="col">Nominal</th>
+                        <th scope="col">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -22,7 +23,7 @@
                     <tr>
                         @if($trsc->status == 'Menunggu konfirmasi')
                         @php $color_status = 'text-warning' @endphp
-                        @elseif($trsc->status == 'Terkonfirmasi')
+                        @elseif($trsc->status == 'Terverifikasi')
                         @php $color_status = 'text-success' @endphp
                         @else
                         @php $color_status = 'text-danger' @endphp
@@ -33,6 +34,31 @@
                         <td>{{ $trsc->name }}</td>
                         <td>{{ $trsc->pembayaran }}</td>
                         <td>Rp {{ number_format($trsc->money, 0, '', '.') }}</td>
+                        <td>
+                            @if($trsc->status == 'Menunggu konfirmasi')
+                            <div class="row px-3">
+                                <div class="col-md-6 pr-1">
+                                    <form action="{{ route('dashboard.confirm', $trsc->id) }}" method="POST" class="form-inline">
+                                        @csrf @method('patch')
+                                        <input type="hidden" name="money_ver" value={{ $trsc->money }}>
+                                        <button class="btn btn-success" type="submit">
+                                            <i class="fa fa-check" aria-hidden="true"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                <div class="col-md-6 pl-1">
+                                    <form action="{{ route('dashboard.confirm', $trsc->id) }}" method="POST" class="form-inline"
+                                        onsubmit="return confirm('Yakin batalkan donasi ini? \n\n>> {{ $trsc->name }} <<');">
+                                        @csrf @method('patch')
+                                        <input type="hidden" name="money_non" value={{ $trsc->money }}>
+                                        <button class="btn btn-danger" type="submit">
+                                            <i class="fa fa-times" aria-hidden="true"></i>
+                                        </button>
+                                    </form>
+                                </div>
+                            </div>
+                            @endif
+                        </td>
                     </tr>
                     @endforeach
                 </tbody>
