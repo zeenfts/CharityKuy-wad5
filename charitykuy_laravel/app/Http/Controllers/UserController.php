@@ -14,10 +14,28 @@ class UserController extends Controller
         ->orwhere('email', 'LIKE', '%' . $q . '%')
         ->orwhere('roles', 'LIKE', '%' . $q . '%')->latest()->paginate(9);
 
+        if(request()->is('dashboard')){
+            $usr = User::where('name', 'LIKE', '%' . $q . '%')
+            ->orwhere('email', 'LIKE', '%' . $q . '%')
+            ->orwhere('roles', 'LIKE', '%' . $q . '%')->get();
+        }
+
         if (count($usr) <= 0) {
+            if(request()->is('dashboard')){
+                return view('admins/main', [
+                    'users' => $usr,
+                ])->with('error', 'Tidak ada user tersebut');
+            }
+
             return view('admins/users', [
                 'users' => $usr,
             ])->with('error', 'Tidak ada user tersebut');
+        }
+
+        if(request()->is('dashboard')){
+            return view('admins/main', [
+                'users' => $usr,
+            ]);
         }
 
         return view('admins/users', [

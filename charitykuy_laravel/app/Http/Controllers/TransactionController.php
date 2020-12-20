@@ -22,9 +22,21 @@ class TransactionController extends Controller
         // $trsc = User::with('do_trans')->where('name', 'LIKE', '%' . $q . '%')->get();
 
         if (count($trsc) <= 0) {
+            if(request()->is('dashboard')){
+                return view('admins/main', [
+                    'transactions' => $trsc,
+                ])->with('error', 'Tidak ada transaksi tersebut');
+            }
+
             return view('admins/transactions', [
                 'transactions' => $trsc,
             ])->with('error', 'Tidak ada transaksi tersebut');
+        }
+
+        if(request()->is('dashboard')){
+            return view('admins/main', [
+                'transactions' => $trsc,
+            ]);
         }
 
         return view('admins/transactions', [

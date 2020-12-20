@@ -14,11 +14,45 @@ class MenuController extends Controller
         $menus = Menu::whereTipe('donasi')->where('title', 'LIKE', '%' . $q . '%')->latest()->paginate(9);
         $non_dnt = Menu::whereTipe('non donasi')->get();
 
+        if(request()->segment(2) == 'donations'){
+            $menus = Menu::where('title', 'LIKE', '%' . $q . '%')
+            ->orwhere('tipe', 'LIKE', '%' . $q . '%')->latest()->paginate(5);
+        }
+
+        if(request()->is('dashboard')){
+            $menus = Menu::where('title', 'LIKE', '%' . $q . '%')
+            ->orwhere('tipe', 'LIKE', '%' . $q . '%')->get();
+        }
+
         if (count($menus) <= 0) {
+            if(request()->segment(2) == 'donations'){
+                return view('admins/donate', [
+                    'menus' => $menus,
+                ])->with('error', 'Tidak ada donasi tersebut');
+            }
+
+            if(request()->is('dashboard')){
+                return view('admins/main', [
+                    'menus' => $menus,
+                ])->with('error', 'Tidak ada donasi tersebut');
+            }
+
             return view('home', [
                 'menus' => $menus,
                 'non_dnt' => $non_dnt,
             ])->with('error', 'Tidak ada donasi tersebut');
+        }
+
+        if(request()->segment(2) == 'donations'){
+            return view('admins/donate', [
+                'menus' => $menus,
+                ]);
+        }
+
+        if(request()->is('dashboard')){
+            return view('admins/main', [
+                'menus' => $menus,
+            ]);
         }
 
         return view('home', [
