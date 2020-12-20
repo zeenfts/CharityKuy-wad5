@@ -18,7 +18,7 @@ class Menu extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function trans_by()
+    public function trans_to()
     {
         return $this->hasMany(Transaction::class, 'menu_id');
     }
