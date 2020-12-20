@@ -7,7 +7,7 @@
             <div class="card rounded-lg"
                 style="box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px;">
                 <div class="card-header text-center bg-white h5">
-                    <a class="text-dark" href="">
+                    <a class="text-dark" href="" style="text-decoration: none">
                         <i class="fa fa-user-circle"></i> {{ __('LOGIN') }}
                     </a>
                 </div>
@@ -17,7 +17,7 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="email" class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-form-label text-md-right pl-3">{{ __('E-Mail Address') }}</label>
 
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror rounded-pill"
                                 name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-form-label text-md-right pl-3">{{ __('Password') }}</label>
 
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror rounded-pill" name="password"
@@ -44,7 +44,7 @@
                         </div>
 
                         <div class="form-group">
-                            <div class="col-md-6 pl-2">
+                            <div class="col-md-6 pl-3">
                                 <div class="form-check">
                                     <input class="form-check-input" type="checkbox" name="remember" id="remember"
                                         {{ old('remember') ? 'checked' : '' }}>

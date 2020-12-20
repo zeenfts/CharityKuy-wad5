@@ -7,7 +7,7 @@
             <div class="card rounded-lg"
                 style="box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px;">
                 <div class="card-header text-center bg-white h5">
-                    <a class="text-dark" href="">
+                    <a class="text-dark" href="" style="text-decoration: none">
                         <i class="fa fa-user-plus"></i> {{ __('REGISTER') }}
                     </a>
                 </div>
@@ -17,7 +17,7 @@
                         @csrf
 
                         <div class="form-group">
-                            <label for="name" class="col-form-label text-md-right">{{ __('Name') }}</label>
+                            <label for="name" class="col-form-label text-md-right pl-3">{{ __('Name') }}</label>
 
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror rounded-pill"
                                 name="name" value="{{ old('name') }}"  autocomplete="name" autofocus>
@@ -30,7 +30,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="email" class="col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                            <label for="email" class="col-form-label text-md-right pl-3">{{ __('E-Mail Address') }}</label>
 
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror rounded-pill"
                                 name="email" value="{{ old('email') }}"  autocomplete="email">
@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="form-group">
-                            <label for="password" class="col-form-label text-md-right">{{ __('Password') }}</label>
+                            <label for="password" class="col-form-label text-md-right pl-3">{{ __('Password') }}</label>
 
                             <input id="password" type="password"
                                 class="form-control @error('password') is-invalid @enderror rounded-pill" name="password" 
@@ -58,7 +58,7 @@
 
                         <div class="form-group">
                             <label for="password-confirm"
-                                class="col-form-label text-md-right">{{ __('Confirm Password') }}</label>
+                                class="col-form-label text-md-right pl-3">{{ __('Confirm Password') }}</label>
 
                             <input id="password-confirm" type="password" class="form-control rounded-pill"
                                 name="password_confirmation"  autocomplete="new-password">
