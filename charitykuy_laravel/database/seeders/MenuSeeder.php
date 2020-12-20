@@ -22,7 +22,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'bencana.png',
             'jumlah' => 2500000,
             'progress' => 25,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 2
         ]);
 
         Menu::create([
@@ -33,7 +34,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'kemanusiaan.png',
             'jumlah' => 5000000,
             'progress' => 50,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 2
         ]);
 
         Menu::create([
@@ -44,7 +46,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'rumah.png',
             'jumlah' => 5000000,
             'progress' => 50,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 3
         ]);
 
         Menu::create([
@@ -54,7 +57,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'hunger.png',
             'jumlah' => 15000000,
             'progress' => 65,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 4
         ]);
 
         Menu::create([
@@ -64,7 +68,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'roomread.png',
             'jumlah' => 25000000,
             'progress' => 35,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 2
         ]);
 
         Menu::create([
@@ -74,7 +79,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'educate.png',
             'jumlah' => 125000000,
             'progress' => 85,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 3
         ]);
 
         Menu::create([
@@ -84,7 +90,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'children.png',
             'jumlah' => 7000000,
             'progress' => 50,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 4
         ]);
 
         Menu::create([
@@ -95,7 +102,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'bencana1.png',
             'jumlah' => 7300000,
             'progress' => 30,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 2
         ]);
 
         Menu::create([
@@ -105,7 +113,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'konservasi.png',
             'jumlah' => 44300000,
             'progress' => 40,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 2
         ]);
 
         Menu::create([
@@ -115,7 +124,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'waterorg.png',
             'jumlah' => 7600000,
             'progress' => 60,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 3
         ]);
 
         Menu::create([
@@ -126,7 +136,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'bencana2.png',
             'jumlah' => 400000,
             'progress' => 10,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 4
         ]);
 
         Menu::create([
@@ -137,7 +148,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'bencana3.png',
             'jumlah' => 33300000,
             'progress' => 60,
-            'tipe' => 'donasi'
+            'tipe' => 'donasi',
+            'user_id' => 3
         ]);
 
         Menu::create([
@@ -146,7 +158,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'infaq.jpg',
             'jumlah' => 0,
             'progress' => 0,
-            'tipe' => 'non donasi'
+            'tipe' => 'non donasi',
+            'user_id' => 1
         ]);
 
         Menu::create([
@@ -155,7 +168,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'sedekah.png',
             'jumlah' => 0,
             'progress' => 0,
-            'tipe' => 'non donasi'
+            'tipe' => 'non donasi',
+            'user_id' => 1
         ]);
 
         Menu::create([
@@ -164,7 +178,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'wakaf.jpg',
             'jumlah' => 0,
             'progress' => 0,
-            'tipe' => 'non donasi'
+            'tipe' => 'non donasi',
+            'user_id' => 1
         ]);
 
         Menu::create([
@@ -173,7 +188,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'zakat.png',
             'jumlah' => 0,
             'progress' => 0,
-            'tipe' => 'non donasi'
+            'tipe' => 'non donasi',
+            'user_id' => 1
         ]);
 
         Menu::create([
@@ -182,7 +198,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'kurban.png',
             'jumlah' => 0,
             'progress' => 0,
-            'tipe' => 'non donasi'
+            'tipe' => 'non donasi',
+            'user_id' => 1
         ]);
 
         Menu::create([
@@ -191,7 +208,8 @@ class MenuSeeder extends Seeder
             'gambar' => 'haji.png',
             'jumlah' => 0,
             'progress' => 0,
-            'tipe' => 'non donasi'
+            'tipe' => 'non donasi',
+            'user_id' => 1
         ]);
     }
 }

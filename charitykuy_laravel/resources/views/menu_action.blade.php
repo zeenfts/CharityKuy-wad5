@@ -10,7 +10,7 @@
             <div class="row justify-content-between px-2">
                 <h1>DESKRIPSI</h1>
                 <div class="row">
-                    @if(auth()->user())
+                    @if((auth()->user()) and (auth()->user()->id == $item->user_id))
                     <div class="col-md-6 pr-2 pl-1">
                         <a href="{{ route('menus.edit', $item) }}" class="btn btn-success w-100"><i class="fa fa-edit"
                                 aria-hidden="true"></i> Edit</a>

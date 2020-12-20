@@ -55,7 +55,8 @@ $img_link = [
 
             {{-- search box --}}
             @if(request()->is('/'))
-            <form class="form-row ml-auto col-md-7 px-0" action="" method="GET">
+            <form class="form-row ml-auto col-md-7 px-0" action="{{ route('menus.index') }}" method="GET" role="search">
+                @csrf
                 <div class="col-md-11 pr-0">
                     <input class="form-control mr-sm-2 pl-2 rounded-0" type="search" placeholder="Cari donasi?" aria-label="Search"
                         name="search_text">

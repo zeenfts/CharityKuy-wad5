@@ -10,6 +10,11 @@ class Menu extends Model
     use HasFactory;
 
     protected $fillable = [
-        'title', 'deskripsi', 'gambar', 'jumlah', 'progress', 'tipe'
+        'title', 'deskripsi', 'gambar', 'jumlah', 'progress', 'tipe', 'user_id'
     ];
+
+    public function create_by()
+    {
+        return $this->belongsTo(User::class, 'user_id');
+    }
 }

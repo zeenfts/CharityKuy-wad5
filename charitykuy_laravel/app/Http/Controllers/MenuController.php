@@ -10,8 +10,17 @@ class MenuController extends Controller
 {
     public function read_menus()
     {
-        $menus = Menu::whereTipe('donasi')->latest()->paginate(9);
+        $q = request('search_text');
+        $menus = Menu::whereTipe('donasi')->where('title', 'LIKE', '%' . $q . '%')->latest()->paginate(9);
         $non_dnt = Menu::whereTipe('non donasi')->get();
+
+        if (count($menus) <= 0) {
+            return view('home', [
+                'menus' => $menus,
+                'non_dnt' => $non_dnt,
+            ])->with('error', 'Tidak ada donasi tersebut');
+        }
+
         return view('home', [
             'menus' => $menus,
             'non_dnt' => $non_dnt,
@@ -48,6 +57,10 @@ class MenuController extends Controller
         $attr->tipe = request('tiped');
         $attr->gambar = $image;
 
+        if(auth()->user()){
+            $attr->user_id = auth()->user()->id;
+        }
+
         if($attr->save()){
             return redirect()->route('menus.index')->with('status', 'Donasi ditambahkan');
         }else{
@@ -71,6 +84,10 @@ class MenuController extends Controller
         $attr->progress = request('progress');
         $attr->deskripsi = request('deskripsi');
         $attr->tipe = request('tiped');
+
+        if(auth()->user()){
+            $attr->user_id = auth()->user()->id;
+        }
 
         if(!$request->hasFile('img_path')){
             $attr->gambar = request('img_hddn');

@@ -27,18 +27,11 @@
                 Tambah Donasi Baru</a>
         </div>
         @endif
-        {{-- <div class="col-md-12 pt-3">
-            <form class="form-row" action="" method="GET">
-                <div class="col-md-11">
-                    <input class="form-control mr-sm-2 shadow" type="search" placeholder="Cari donasi?" aria-label="Search"
-                        name="search_text">
-                </div>
-                <div class="col-md-1">
-                    <button class="btn btn-outline-info btn-block shadow" type="submit" name="searchh"><i class="fa fa-search"
-                            aria-hidden="true"></i></button>
-                </div>
-            </form>
-        </div> --}}
+        @if(count($menus)==0)
+        <div class="col-md-12 pt-3">
+            <h6>tidak ada donasi yang dimaksud</h6>
+        </div>
+        @endif
     </div>
 
     {{-- content donation card --}}
@@ -47,13 +40,21 @@
         <div class="col-md-4 pt-4">
             <a class="card text-center rounded-lg text-dark" href="{{ route('menus.detail', $menu) }}"
                 data-toggle="tooltip" data-placement="top" title="Mari donasi"
-                style="height: 32.8em; box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px; text-decoration: none;">
+                style="height: 25em; box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px; text-decoration: none;">
 
                 <img src="{{ asset('img_static').'/'.$menu->gambar }}" class="card-img-top" style="height: 9.4em;">
 
                 <div class="card-body text-center">
                     <h5 class="card-title">{{ $menu->title }}</h5>
-                    <p class="card-text" style="text-align: justify">{{ $menu->deskripsi }}</p>
+                    <div class="row">
+                        <div
+                            class="col-md-1 text-left{{ ((auth()->user()) and (auth()->user()->id == $menu->user_id)) ? ' text-info' : ' text-black-50' }}">
+                            <i class="fas fa-user-check"></i>
+                        </div>
+                        <div class="col-md-5 text-left text-black-50">
+                            {{ $menu->create_by->name }}
+                        </div>
+                    </div>
                 </div>
                 <div class="card-footer bg-white">
                     <div class="row px-2">
