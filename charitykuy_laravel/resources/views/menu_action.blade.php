@@ -3,12 +3,28 @@
 
 @section('content')
 <div class="container">
+    @error('nominal')
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="alert alert-danger alert-dismissible fade show">
+                    {{ __('Gagal berdonasi!!') }}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    @enderror
     @include('layouts.carous')
 
     <div class="row mt-4">
         <div class="col-md-12 pt-3">
             <div class="row justify-content-between px-2">
-                <h1>DESKRIPSI</h1>
+                <a href="" style="text-decoration: none" class="text-dark">
+                    <h1>DESKRIPSI</h1>
+                </a>
                 <div class="row">
                     @if((auth()->user()) and (auth()->user()->id == $item->user_id))
                     <div class="col-md-6 pr-2 pl-1">
@@ -63,6 +79,7 @@
                 </div>
             </div>
             <P>{{ $item->deskripsi }}</P>
+
             <!-- Button trigger modal -->
             {{-- {{ dd($item) }} --}}
             <div class="row-md-auto text-center">
@@ -71,17 +88,18 @@
                     <i class="fas fa-donate" aria-hidden="true"></i>&nbsp; {{ 'Mulai '.$item->title }}
                 </a>
                 @if($item->tipe == 'non donasi')
-                <button type="button" class="btn btn-secondary" data-toggle="modal" data-target="#exampleModal">
+                <a type="button" class="btn btn-secondary"
+                    href={{ (($item->title != 'Zakat')) ? '' : route('zakat.hitung') }}>
                     <i class="{{ ($item->title == 'Zakat') ? 'fas fa-cash-register' : 'fas fa-wallet' }}"
                         aria-hidden="true"></i>&nbsp;
                     {{ ($item->title == 'Zakat') ? 'Hitung ' : 'Tabungan ' }}{{ $item->title }}
-                </button>
+                </a>
                 @endif
             </div>
         </div>
     </div>
 
-    <!-- Modal -->
+    <!-- Modal Payment -->
     <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -92,26 +110,36 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <h5>Mandiri</h5>
-                    <p><a href="#" role="button" class="btn btn-primary" title="Popover title"
-                            data-content="Popover body content is set in this attribute.">Lanjutkan Pembayaran</a></p>
-                    <hr>
-                    <h5>BCA</h5>
-                    <p><a href="#" role="button" class="btn btn-primary" title="Popover title"
-                            data-content="Popover body content is set in this attribute.">Lanjutkan Pembayaran</a></p>
-                    <hr>
-                    <h5>LinkAja</h5>
-                    <p><a href="#" role="button" class="btn btn-primary" title="Popover title"
-                            data-content="Popover body content is set in this attribute.">Lanjutkan Pembayaran</a></p>
-                    <hr>
-                    <h5>OVO</h5>
-                    <p><a href="#" role="button" class="btn btn-primary" title="Popover title"
-                            data-content="Popover body content is set in this attribute.">Lanjutkan Pembayaran</a></p>
-                    <hr>
-                    <h5>Dana</h5>
-                    <p><a href="#" role="button" class="btn btn-primary" title="Popover title"
-                            data-content="Popover body content is set in this attribute.">Lanjutkan Pembayaran</a></p>
-                    <hr>
+
+                    <form action="{{ route('trans.pay', $item) }}" method="POST">
+                        @csrf
+                        <div class="row justify-content-center">
+                            <div class="form-group row-md-4 text-center">
+                                <label for="titlee"
+                                    class="col-form-label text-md-right">{{ __('Masukkan nominal') }}</label>
+                                <input type="number"
+                                    class="form-control pt-1 rounded-pill @error('nominal') is-invalid @enderror"
+                                    value=0 name="nominal" id='nominal'>
+                                @error('nominal')
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $message }}</strong>
+                                </span>
+                                @enderror
+                            </div>
+                        </div>
+                        <hr>
+                        <h5>Bank Dummy</h5>
+                        <p><button role="button" class="btn btn-primary" title="Dummy"
+                                data-content="Popover body content is set in this attribute."><i
+                                    class="fas fa-coins"></i>
+                                Lanjutkan Pembayaran</button></p>
+                        <hr>
+                        <h5>EzPay</h5>
+                        <p><button role="button" class="btn btn-primary" title="EzPay"
+                                data-content="Popover body content is set in this attribute."><i
+                                    class="fas fa-coins"></i>
+                                Lanjutkan Pembayaran</button></p>
+                    </form>
                 </div>
             </div>
         </div>

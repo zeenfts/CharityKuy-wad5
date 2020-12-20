@@ -46,4 +46,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Menu::class, 'user_id');
     }
+
+    public function do_trans()
+    {
+        return $this->hasMany(Transaction::class, 'user_id');
+    }
 }

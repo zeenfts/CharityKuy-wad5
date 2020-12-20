@@ -41,6 +41,14 @@ class MenuController extends Controller
 
     public function store_menu(Request $request)
     {
+        $request->validate([
+            'titlee' => 'required',
+            'deskripsi' => 'required',
+            'tiped' => 'required',
+            'jumlah' => 'required',
+            'progress' => 'required',
+        ]);
+
         if(!$request->hasFile('img_path')){
             $image='';
         }else{
@@ -63,9 +71,8 @@ class MenuController extends Controller
 
         if($attr->save()){
             return redirect()->route('menus.index')->with('status', 'Donasi ditambahkan');
-        }else{
-            return redirect()->route('menus.index')->with('error', 'Donasi gagal ditambahkan!!');
         }
+        return redirect()->route('menus.index')->with('error', 'Donasi gagal ditambahkan!!');
     }
 
     public function edit_menu(Menu $item)
@@ -77,6 +84,14 @@ class MenuController extends Controller
 
     public function update_menu($item, Request $request)
     {
+        request()->validate([
+            'titlee' => 'required',
+            'deskripsi' => 'required',
+            'tiped' => 'required',
+            'jumlah' => 'required',
+            'progress' => 'required',
+        ]);
+
         $attr = Menu::find($item);
 
         $attr->title = request('titlee');
@@ -105,9 +120,8 @@ class MenuController extends Controller
 
         if($attr->save()){
             return redirect()->route('menus.detail', $attr)->with('status', 'Donasi berhasil diupdate');
-        }else{
-            return redirect()->route('menus.detail', $attr)->with('error', 'Donasi gagal diupdate!!');
         }
+        return redirect()->route('menus.detail', $attr)->with('error', 'Donasi gagal diupdate!!');
     }
 
     public function delete_menu(Menu $item)
@@ -121,8 +135,7 @@ class MenuController extends Controller
         // }
         if($item->delete()){
             return redirect(route('menus.index'))->with('status', 'Donasi telah dihapus');
-        }else{
-            return redirect(route('menus.index'))->with('error', 'Gagal menghapus donasi!!');
         }
+        return redirect(route('menus.index'))->with('error', 'Gagal menghapus donasi!!');
     }
 }

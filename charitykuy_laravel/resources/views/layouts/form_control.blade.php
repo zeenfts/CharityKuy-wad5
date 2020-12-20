@@ -1,22 +1,28 @@
-<div class="form-group row-md-4"> 
+<div class="form-group row-md-4">
     <label for="titlee" class="col-form-label text-md-right pl-2">{{ __('Nama Donasi') }}</label>
-    <input type="text" class="form-control pt-1 rounded-pill" required="required" value="{{ isset($item) ? $item->title : old('titlee') }}"
-        name="titlee" id='titlee'>
+    <input type="text" class="form-control pt-1 rounded-pill @error('titlee') is-invalid @enderror"
+        value="{{ isset($item) ? $item->title : old('titlee') }}" name="titlee" id='titlee'>
+    @error('titlee')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
 </div>
 
 <div class="form-group">
     <label for="body" class="col-form-label text-md-right pl-2">{{ __('Description') }}</label>
-    <textarea name="deskripsi" id="body" rows=3 class="form-control pt-1 rounded-lg" required>{{ isset($item) ? $item->deskripsi : old('deskripsi') }}
+    <textarea name="deskripsi" id="deskripsi" rows=3
+        class="form-control pt-1 rounded-lg @error('deskripsi') is-invalid @enderror">{{ isset($item) ? $item->deskripsi : old('deskripsi') }}
     </textarea>
     {{-- <textarea name="description" id="body" rows=3 
         class="form-control pt-1 @error('body') is-invalid @enderror" required="required">
         {{ isset($item) ? $item->description : '' }}
     </textarea> --}}
-    {{-- @error('body')
+    @error('deskripsi')
     <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
     </span>
-    @enderror --}}
+    @enderror
 </div>
 
 <div class="form-group row-md-4 pl-2">
@@ -35,11 +41,17 @@
         <label for="non donasi">non donasi</label><br>
         @endif
         @else
-        <input type="radio" id="donasi" name="tiped" value="donasi">
+        <input type="radio" id="donasi" name="tiped" value="donasi" class="@error('tiped') is-invalid @enderror">
         <label for="donasi">donasi</label><br>
-        <input type="radio" id="non donasi" name="tiped" value="non donasi">
+        <input type="radio" id="non donasi" name="tiped" value="non donasi"
+            class="@error('tiped') is-invalid @enderror">
         <label for="non donasi">non donasi</label><br>
         @endif
+        @error('tiped')
+        <span class="invalid-feedback" role="alert">
+            <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
 </div>
 
@@ -49,15 +61,25 @@
         <div class="input-group-prepend pr-1">
             <span class="input-group-text rounded-pill">Rp</span>
         </div>
-        <input type="number" class="form-control rounded-pill" value="{{ isset($item) ? $item->jumlah : old('jumlah')}}" name="jumlah" id="jumlah"
-            step=".01" required>
+        <input type="number" class="form-control rounded-pill @error('jumlah') is-invalid @enderror"
+            value="{{ isset($item) ? $item->jumlah : old('jumlah')}}" name="jumlah" id="jumlah" step=".01">
     </div>
+    @error('jumlah')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
 </div>
 
 <div class="form-group row-md-4">
     <label for="progress" class="col-form-label text-md-right pl-2">{{ __('Progress Donasi (%)') }}</label>
-    <input type="number" class="form-control pt-1 rounded-pill" value="{{ isset($item) ? $item->progress : old('progress') }}" name="progress" id='progress'
-        required>
+    <input type="number" class="form-control pt-1 rounded-pill @error('progress') is-invalid @enderror"
+        value="{{ isset($item) ? $item->progress : old('progress') }}" name="progress" id='progress'>
+    @error('progress')
+    <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+    </span>
+    @enderror
 </div>
 
 <div class="form-group row-md-4">
