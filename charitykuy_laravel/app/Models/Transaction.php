@@ -10,7 +10,7 @@ class Transaction extends Model
     use HasFactory;
 
     protected $fillable = [
-        'user_id', 'menu_id', 'money', 'status'
+        'user_id', 'menu_id', 'pembayaran', 'money', 'status'
     ];
 
     public function trans_by()

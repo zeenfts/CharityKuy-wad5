@@ -101,7 +101,7 @@
     <div id="app">
         @include('layouts.nav')
 
-        <main class="{{ (!request()->segment(1) == 'dashboard') ? ' py-5' : '' }}" style="background-color: aliceblue">
+        <main class="{{ (request()->segment(1) != 'dashboard') ? 'py-4' : '' }}" style="background-color: aliceblue">
             @include('layouts.alert')
             @yield('content')
         </main>

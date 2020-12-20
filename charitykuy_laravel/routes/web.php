@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\UserController;
 use App\Http\Controllers\TransactionController;
 
 // Route::get('/', [MenuController::class, 'read_menus'])->name('menus.index')->middleware(['auth']);
@@ -25,12 +26,8 @@ Route::get('dashboard', function(){
 Route::get('dashboard/donations', function(){
     return view('admins/donate');
 })->name('dashboard.donations');
-Route::get('dashboard/transactions', function(){
-    return view('admins/transactions');
-})->name('dashboard.transactions');
-Route::get('dashboard/users', function(){
-    return view('admins/users');
-})->name('dashboard.users');
+Route::get('dashboard/transactions', [TransactionController::class, 'read_transc'])->name('dashboard.transactions');
+Route::get('dashboard/users', [UserController::class, 'read_users'])->name('dashboard.users');
 Route::get('{item:id}/detail', [MenuController::class, 'menu_detail'])->name('menus.detail');
 
 Route::get('create', [MenuController::class, 'add_menu'])->name('menus.add');

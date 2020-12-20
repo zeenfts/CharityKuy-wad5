@@ -58,9 +58,7 @@ $img_link = [
 
             {{-- search box --}}
             @if(request()->is('/') or request()->segment(1) == 'dashboard')
-            <form class="form-row ml-auto col-md-7 px-0"
-                action="{{ ((auth()->user()) and (auth()->user()->roles == 'admin_role')) ? route('dashboard.main') : route('menus.index') }}"
-                method="GET" role="search">
+            <form class="form-row ml-auto col-md-7 px-0" action="" method="GET" role="search">
                 @csrf
                 <div class="col-md-11 pr-0">
                     <input class="form-control mr-sm-2 pl-2 rounded-0" type="search" placeholder="Cari donasi?"

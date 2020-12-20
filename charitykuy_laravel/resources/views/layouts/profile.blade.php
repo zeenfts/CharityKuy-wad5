@@ -98,7 +98,7 @@
 
                             <input id="current_password" type="password"
                                 class="form-control @error('current_password') is-invalid @enderror rounded-pill"
-                                name="current_password" autocomplete="new-password">
+                                name="current_password" autocomplete="new-password" autofocus>
 
                             @error('current_password')
                             <span class="invalid-feedback" role="alert">
@@ -114,7 +114,7 @@
 
                                 <input id="password" type="password"
                                     class="form-control @error('password') is-invalid @enderror rounded-pill"
-                                    name="password" autocomplete="new-password">
+                                    name="password" autocomplete="new-password" autofocus>
 
                                 @error('password')
                                 <span class="invalid-feedback" role="alert">
@@ -129,7 +129,7 @@
                                     class="col-form-label text-md-right">{{ __('Confirm New Password') }}</label>
 
                                 <input id="password-confirm" type="password" class="form-control rounded-pill"
-                                    name="password_confirmation" autocomplete="new-password">
+                                    name="password-confirm" autocomplete="new-password">
 
                             </div>
                         </div>

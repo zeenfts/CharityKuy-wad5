@@ -1,4 +1,4 @@
-@extends('admins.dashboard')
+@extends('admins.dashboard', ['title' => 'Donations'])
 
 @section('content_dsh')
 <div class="custom pt-5 pl-5 ml-5">
