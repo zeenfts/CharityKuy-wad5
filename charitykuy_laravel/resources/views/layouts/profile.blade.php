@@ -44,10 +44,10 @@
                             <label for="name" class="col-form-label text-md-right pl-3">{{ __('Name') }}</label>
 
                             <input id="name" type="text"
-                                class="form-control @error('name') is-invalid @enderror rounded-pill" name="name"
-                                value="{{ auth()->user()->name }}" autocomplete="name" autofocus>
+                                class="form-control @error('name', 'updateProfileInformation') is-invalid @enderror rounded-pill" name="name"
+                                value="{{ old('name') ?? auth()->user()->name }}" autocomplete="name" autofocus>
 
-                            @error('name')
+                            @error('name', 'updateProfileInformation')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -59,11 +59,11 @@
                                 class="col-form-label text-md-right pl-3">{{ __('E-Mail Address') }}</label>
 
                             <input id="email" type="email"
-                                class="form-control @error('email') is-invalid @enderror rounded-pill" name="email"
-                                value="{{ auth()->user()->email }}" autocomplete="email" autofocus>
+                                class="form-control @error('email', 'updateProfileInformation') is-invalid @enderror rounded-pill" name="email"
+                                value="{{ old('email') ?? auth()->user()->email }}" autocomplete="email" autofocus>
 
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            @error('email', 'updateProfileInformation')
+                            <span class="invalid-feedback py-0" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -97,10 +97,10 @@
                                 class="col-form-label text-md-right pl-3">{{ __('Current Password') }}</label>
 
                             <input id="current_password" type="password"
-                                class="form-control @error('current_password') is-invalid @enderror rounded-pill"
+                                class="form-control @error('current_password', 'updatePassword') is-invalid @enderror rounded-pill"
                                 name="current_password" autocomplete="new-password" autofocus>
 
-                            @error('current_password')
+                            @error('current_password', 'updatePassword')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
@@ -113,10 +113,10 @@
                                     class="col-form-label text-md-right">{{ __('New Password') }}</label>
 
                                 <input id="password" type="password"
-                                    class="form-control @error('password') is-invalid @enderror rounded-pill"
+                                    class="form-control @error('password', 'updatePassword') is-invalid @enderror rounded-pill"
                                     name="password" autocomplete="new-password" autofocus>
 
-                                @error('password')
+                                @error('password', 'updatePassword')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
