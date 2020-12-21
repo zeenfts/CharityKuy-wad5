@@ -8,7 +8,7 @@
         </div>
     </div>
 
-    <div class="row justify-content-center px-5" style="margin-left: 5.8em">
+    <div class="row justify-content-center px-5 mr-0" style="margin-left: 5.8em">
         {{-- <h3>users</h3> --}}
         <div class="row pt-0">
             <table class="table text-center table-striped table-hover">

@@ -2,7 +2,7 @@
 
 @section('content_dsh')
 <div class="custom pt-5 pl-5 ml-5">
-    <div class="row justify-content-center px-5 text-center" style="margin-left: 5.8em">
+    <div class="row justify-content-center px-5 text-center mr-0" style="margin-left: 5.8em">
         <a class="col-md-3 pt-1" style="text-decoration: none" href="{{ route('dashboard.donations') }}">
             <div class="card bg-secondary text-light" style="background: linear-gradient(to bottom,#1F1C2C, #928DAB);">
                 <div class="card-head text-right pr-4 pt-2">

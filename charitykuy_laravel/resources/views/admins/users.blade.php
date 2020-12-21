@@ -2,7 +2,7 @@
 
 @section('content_dsh')
 <div class="custom pt-5 pl-5 ml-5">
-    <div class="row justify-content-center px-5" style="margin-left: 5.8em">
+    <div class="row justify-content-center px-5 mr-0" style="margin-left: 5.8em">
         {{-- <h3>users</h3> --}}
         <div class="row pt-4">
             <table class="table text-center table-striped table-hover">
