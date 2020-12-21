@@ -12,8 +12,8 @@
 
     {{-- left-section --}}
     <div class="row pt-2">
-        <div class="col-6">
-            <div class="card rounded-lg"
+        <div class="col-sm-12 col-lg-6">
+            <div class="card rounded-lg h-100"
                 style="box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px; width:34em; height:31em">
                 <div class="card-header text-center bg-white">
                     <div class="col-md-12">
@@ -81,8 +81,8 @@
         </div>
 
         {{-- right-section (optional) --}}
-        <div class="col-6 justify-content-center">
-            <div class="card rounded-lg"
+        <div class="col-sm-12 col-lg-6 justify-content-center">
+            <div class="card rounded-lg h-100"
                 style="box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 10px, inset rgba(0, 0, 0, 0.15) 0px 0px 3px; width:33.7em; height:31em">
                 <div class="card-header text-center bg-white">
                     <img src="https://images.unsplash.com/photo-1485125457414-5f3aa5b0d208?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1019&q=80"
