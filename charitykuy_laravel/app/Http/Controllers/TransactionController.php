@@ -64,7 +64,7 @@ class TransactionController extends Controller
         $attr->status = 'Menunggu konfirmasi';
 
         if($attr->save()){
-            return redirect()->route('menus.index', $attr)->with('status', 'Menunggu konfirmasi');
+            return redirect()->route('menus.transaksi', $attr->user_id)->with('status', 'Menunggu konfirmasi');
         }
         return redirect()->route('menus.index', $attr)->with('error', 'Gagal berdonasi!!');
     }
