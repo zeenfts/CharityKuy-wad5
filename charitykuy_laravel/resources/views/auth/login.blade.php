@@ -23,7 +23,7 @@
                                 name="email" value="{{ old('email') }}" autocomplete="email" autofocus>
 
                             @error('email')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback pl-3" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -37,7 +37,7 @@
                                 autocomplete="current-password">
 
                             @error('password')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback pl-3" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror

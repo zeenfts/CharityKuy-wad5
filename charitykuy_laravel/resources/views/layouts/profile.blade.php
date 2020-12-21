@@ -48,7 +48,7 @@
                                 value="{{ old('name') ?? auth()->user()->name }}" autocomplete="name" autofocus>
 
                             @error('name', 'updateProfileInformation')
-                            <span class="invalid-feedback" role="alert">
+                            <span class="invalid-feedback pl-3" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -63,7 +63,7 @@
                                 value="{{ old('email') ?? auth()->user()->email }}" autocomplete="email" autofocus>
 
                             @error('email', 'updateProfileInformation')
-                            <span class="invalid-feedback py-0" role="alert">
+                            <span class="invalid-feedback py-0 pl-3" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
@@ -94,7 +94,7 @@
                         @csrf @method('put')
                         <div class="form-group text-center">
                             <label for="current_password"
-                                class="col-form-label text-md-right pl-3">{{ __('Current Password') }}</label>
+                                class="col-form-label text-md-right">{{ __('Current Password') }}</label>
 
                             <input id="current_password" type="password"
                                 class="form-control @error('current_password', 'updatePassword') is-invalid @enderror rounded-pill"
