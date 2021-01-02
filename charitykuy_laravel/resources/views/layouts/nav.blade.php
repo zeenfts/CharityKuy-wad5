@@ -62,7 +62,7 @@ $img_link = [
                 @csrf
                 <div class="col-md-11 pr-0">
                     <input class="form-control mr-sm-2 pl-2 rounded-0" type="search" placeholder="Cari donasi?"
-                        aria-label="Search" name="search_text">
+                        aria-label="Search" name="search_text" value= "{{ request('search_text') }}">
                 </div>
                 <div class="col-md-1 pl-0">
                     <button class="btn btn-outline-secondary rounded-0" type="submit" name="searchh"><i
