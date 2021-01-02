@@ -171,6 +171,11 @@
             </tbody>
         </table>
     </form>
+
+    <div class="mt-4">
+        <a href="{{ route('menus.detail', $item)}}"
+            class="btn btn-success w-50">Lanjut ber-Zakat</a>
+    </div>
 </div>
 
 <script language="JavaScript" type="text/javascript">

@@ -85,9 +85,9 @@
                     data-target="#exampleModal" href={{ !(Auth()->user()) ? route('login') : '#' }}>
                     <i class="fas fa-donate" aria-hidden="true"></i>&nbsp; {{ 'Mulai '.$item->title }}
                 </a>
-                @if($item->tipe == 'non donasi')
+                @if($item->title == 'Zakat' or $item->title == 'Haji dan Umroh' or $item->title == 'Kurban')
                 <a type="button" class="btn btn-secondary"
-                    href={{ (($item->title != 'Zakat')) ? '' : route('zakat.hitung') }}>
+                    href={{ (($item->title != 'Zakat')) ? '' : route('zakat.hitung', $item->id) }}>
                     <i class="{{ ($item->title == 'Zakat') ? 'fas fa-cash-register' : 'fas fa-wallet' }}"
                         aria-hidden="true"></i>&nbsp;
                     {{ ($item->title == 'Zakat') ? 'Hitung ' : 'Tabungan ' }}{{ $item->title }}

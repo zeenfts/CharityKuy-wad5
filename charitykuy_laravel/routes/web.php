@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Menu;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\UserController;
@@ -40,6 +41,6 @@ Route::post('{id}/bayar', [TransactionController::class, 'bayar_donasi'])->name(
 Route::get('profile', function () {
     return view('layouts/profile');
 })->name('profile');
-Route::get('zakat/hitung', function () {
-    return view('secondary/hitung_zakat');
+Route::get('{item:id}/detail/hitung_zakat', function (Menu $item) {
+    return view('secondary/hitung_zakat',['item' => $item]);
 })->name('zakat.hitung');
