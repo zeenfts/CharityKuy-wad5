@@ -49,7 +49,7 @@ class TransactionController extends Controller
             ]);
     }
 
-    public function bayar_donasi($item)
+    public function bayar_donasi($item, Request $request)
     {
         request()->validate([
             'nominal' => 'required'
@@ -59,7 +59,15 @@ class TransactionController extends Controller
 
         $attr->user_id = auth()->user()->id;
         $attr->menu_id = $item;
-        $attr->pembayaran = 'bank dummy';
+        switch ($request->input('action')) {
+            case 'dummy':
+                $attr->pembayaran = 'bank dummy';
+                break;
+    
+            case 'ezpay':
+                $attr->pembayaran = 'ezpay';
+                break;
+        }
         $attr->money = request('nominal');
         $attr->status = 'Menunggu konfirmasi';
 
@@ -89,10 +97,20 @@ class TransactionController extends Controller
         // dd($attr);
         $dnts = Menu::find($attr->menu_id);
 
-        $total_dnt = 100 / $dnts->progress * $dnts->jumlah;
-        $dnts->jumlah += $attr->money;
-        $dnts->progress = $dnts->jumlah / $total_dnt * 100;
-        $dnts->progress = intval($dnts->progress);
+        if($attr->trans_from->tipe == 'donasi'){
+            $total_dnt = 100 / $dnts->progress * $dnts->jumlah;
+            $dnts->jumlah += $attr->money;
+            $dnts->progress = $dnts->jumlah / $total_dnt * 100;
+            $dnts->progress = intval($dnts->progress);
+            if($dnts->progress > 100){
+                $dnts->progress = 100;
+            }else if($dnts->progress < 0){
+                $dnts->progress = 0;
+            }
+        }else{
+            $dnts->jumlah += $attr->money;
+            $dnts->progress = 0;
+        }
         // dd($dnts);
         if($attr->save() and $dnts->save()){
             if($attr->status == 'Terverifikasi'){

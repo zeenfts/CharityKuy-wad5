@@ -127,14 +127,14 @@
                         </div>
                         <hr>
                         <h5>Bank Dummy</h5>
-                        <p><button role="button" class="btn btn-primary" title="Dummy"
+                        <p><button role="button" class="btn btn-primary" title="Dummy" name="action" value="dummy"
                                 data-content="Popover body content is set in this attribute."><i
                                     class="fas fa-coins"></i>
                                 Lanjutkan Pembayaran</button></p>
                         <hr>
                         <h5>EzPay</h5>
-                        <p><button role="button" class="btn btn-primary" title="EzPay"
-                                data-content="Popover body content is set in this attribute."><i
+                        <p><button role="button" class="btn btn-primary" title="EzPay" value="ezpay"
+                                data-content="Popover body content is set in this attribute." name="action"><i
                                     class="fas fa-coins"></i>
                                 Lanjutkan Pembayaran</button></p>
                     </form>
